@@ -2,8 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http//mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Board">
    <select id="selectAll" resultType="boardVO">
-      SELECT bnumber, btitle, bcontent, bdate, unum, bimage
-      FROM BOARD
+      SELECT bnumber, btitle, bcontent, bdate, USER.unum, bimage, USER.uname
+      FROM board LEFT JOIN user
+      ON board.unum = user.unum
       ORDER BY 1 DESC
    </select>
    

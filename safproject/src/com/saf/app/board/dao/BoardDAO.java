@@ -34,7 +34,7 @@ public class BoardDAO {
    }
    
    //게시글 추가
-   public void insert(LostPetVO board) {
+   public void insert(BoardVO board) {
       sqlSession.insert("Board.insert", board);
    }
    

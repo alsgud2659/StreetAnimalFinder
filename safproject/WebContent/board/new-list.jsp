@@ -7,6 +7,7 @@
 
 <head>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/board/LostPet.css" type="text/css">
+    <c:set var="list" value="${boardList}"/>
 </head>
 
 <body>
@@ -45,20 +46,20 @@
     <!-- 목록 -->
     <div class="container space-1">
         
-        <div class="row">
-           <c:forEach var="bList" items="${BoardList}">
+        <div class="row" style="display:flex; flex-wrap: wrap;">
+        	<c:forEach var="board" items="${list}">
             <div class="col-sm-6 col-md-3 mb-7">
                 <div class="card border-0 shadow-soft h-100">
                     <a href="${pageContext.request.contextPath}/board/controller/BoardDetailOk.bo">
                         <div id="img1" class="image-box card-img-top" name="img" style="width:100%;height:220px;">
-                            <img class="image-thumbnail" src="logo.svg">
+                            <img class="image-thumbnail" src="${pageContext.request.contextPath}/board/${board.getBimage()}">
                         </div>
                     </a>
                     <div class="card-body p-3">
-                        <h2 class="h5 font-weight-bold"><a href="${pageContext.request.contextPath}/board/controller/BoardDetailOk.bo?btitle=${bList.getBtitle()}&bcontent=${bList.getBcontent}&bimage=${bList.getBimage}">글 제목</a></h2>
+                        <h2 class="h5 font-weight-bold"><a href="${pageContext.request.contextPath}/board/controller/BoardDetailOk.bo?bnumber=${board.getBnumber()}">${board.getBtitle()}</a></h2>
                         <p class="text-secondary mb-0">
-                            이름: ${bList.getUnum()} <br>
-                            작성시간: ${bList.getBdate()}
+                            이름: ${board.getUnum()} <br>
+                            작성시간: ${board.getBdate()}
                         </p>
                     </div>
 
