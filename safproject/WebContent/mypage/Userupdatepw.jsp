@@ -48,7 +48,7 @@
     </h3>
 
     <section class="change-form">
-        <form action="${pageContext.request.contextPath}/user/UserUpdatePwOK.us">
+        <form action="${pageContext.request.contextPath}/user/controller/UserUpdatePwOK.us">
             <table class="modi-table1">
                 <tbody>
                     <tr class="modi-table-tr">
@@ -59,7 +59,7 @@
                         </th>
                         <td class="modi-table-td">
                             <div class="modi-item">
-                                <input type="password" name="userid" id="modi-id" class="form-control">
+                                <input type="password" name="upwnow" id="modi-id" class="form-control">
                                 <div class="div_info_maroon">
                                     <span class="setSubTextColor"></span>
                                 </div>
@@ -72,7 +72,7 @@
                         </th>
                         <td class="modi-table-td">
                             <div class="modi-item">
-                                <input type="text" name="username" id="modi-name" maxlength="25" class="form-control">
+                                <input type="text" name="upw" id="modi-name" maxlength="25" class="form-control">
                                 <div class="div_info_maroon">
                                     <span class="setSubTextColor"></span>
                                 </div>
@@ -85,7 +85,7 @@
                         </th>
                         <td class="modi-table-td">
                             <div class="modi-item">
-                                <input type="text" name="username" id="modi-name" maxlength="25" class="form-control">
+                                <input type="text" name="upwcheck" id="modi-name" maxlength="25" class="form-control">
                                 <div class="div_info_maroon">
                                     <span class="setSubTextColor"></span>
                                 </div>

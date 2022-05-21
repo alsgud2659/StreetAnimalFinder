@@ -47,7 +47,7 @@
     </h3>
     
     <section class="change-form">
-        <form action="">
+        <form action="${pageContext.request.contextPath}/user/controller/UserDelUserOK.us">
             <table class="modi-table1">
                 <tbody>
                     <tr class="modi-table-tr">

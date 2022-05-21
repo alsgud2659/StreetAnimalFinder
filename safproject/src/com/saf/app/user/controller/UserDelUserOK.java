@@ -20,9 +20,11 @@ public class UserDelUserOK implements Action{
 		UserVO user = new UserVO();
 		UserDAO dao = new UserDAO();
 		
+		int ustatus = 0;
+		String uid = "1";
 		
-		
-		user.setUstatus(0);
+		user.setUid(uid);
+		user.setUstatus(ustatus);
 		
 
 		
@@ -31,7 +33,7 @@ public class UserDelUserOK implements Action{
 		af.setRedirect(true);
 		//redirect로 전송할 때 contextPath가 사라지기 때문에
 		//미리 붙여놓고 전송한다.
-		af.setPath(req.getContextPath() + "/user/delUser.me");
+		af.setPath(req.getContextPath() + "/mainpage/main.jsp");
 		
 		return af;
 	}

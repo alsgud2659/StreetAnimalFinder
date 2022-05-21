@@ -44,12 +44,14 @@ public class UserFrontController extends HttpServlet {
 		}else if(command.equals("/user/controller/UserUpdate.us")) {
 			af = new UserUpdate().execute(req, resp);
 		}else if(command.equals("/user/controller/UserUpdateProfile.us")) {
-			System.out.print("도착");
 			af = new UserUpdateProfile().execute(req, resp);
 		}else if(command.equals("/user/controller/UserUpdateProfileOK.us")) {
 			af = new UserUpdateProfileOK().execute(req, resp);
+		}else if(command.equals("/user/controller/UserUpdatePwOK.us")) {
+			af = new UserUpdatePwOK().execute(req, resp);
+		}else if(command.equals("/user/controller/UserDelUserOK.us")) {
+			af = new UserDelUserOK().execute(req, resp);
 		}
-		
 		//�쟾�넚�븞�븷吏�
 		if(af != null) {
 			if(af.isRedirect()) {

@@ -22,9 +22,12 @@ public class UserUpdatePwOK implements Action{
 		
 		
 		
+		String uid = "1";
+		
+		user.setUid(uid);
 		user.setUpw(req.getParameter("upw"));
 		
-
+		
 		
 		dao.updateUpw(user);
 		
