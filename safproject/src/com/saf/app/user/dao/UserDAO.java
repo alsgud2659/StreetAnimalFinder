@@ -58,12 +58,12 @@ public class UserDAO {
 
 	// 비밀번호 변경
 	public void updateUpw(UserVO user) {
-		sqlSession.update("User.upw", user);
+		sqlSession.update("User.updateUpw", user);
 	}
 
 	// 회원 탈퇴
 	public void delUser(UserVO user) {
-		sqlSession.update("User.updateUser", user);
+		sqlSession.update("User.delUser", user);
 	}
 	
 }
