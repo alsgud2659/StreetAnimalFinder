@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http//mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Public 3.0//EN" "http//mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Board">
    <select id="selectAll" resultType="boardVO">
       SELECT bnumber, btitle, bcontent, bdate, USER.unum, bimage, USER.uname
@@ -10,20 +10,26 @@
    
    <!-- 게시글 상세보기(전체 정보 조회) -->
    <select id="selectDetail" parameterType="_int" resultType="boardVO">
-      SELECT bnumber, btitle, bcontent, bdate, b.unum
-      FROM BOARD
+      SELECT bnumber, btitle, bcontent, bdate, unum, bimage
+      FROM board
       WHERE bnumber = #{bnumber}
+   </select>
+   
+   <select id="getFiles" parameterType="_int" resultType="boardVO">
+   		SELECT fname, foriginal, bnumber
+   		FROM file
+   		WHERE bnumber = #{bnumber}
    </select>
    
    <!-- 게시글 작성 -->
    <insert id="insert" parameterType="boardVO">
-      insert into board (btitle, bcontent, unum, bimage, bdate) 
-      values(#{btitle}, #{bcontent}, #{unum}, #{bimage}, now())
+      insert into board (btitle, bcontent, bdate, unum, bimage, buid) 
+      values(#{btitle}, #{bcontent}, now(), #{unum}, #{bimage}, #{buid})
    </insert>
    
    <!-- 게시글 삭제 -->
    <delete id="deleteBoard" parameterType="_int">
-      DELETE FROM BOARD WHERE bnumber = #{bnumber}
+      DELETE FROM board WHERE bnumber = #{bnumber}
    </delete>
    
    <!-- 게시글 수정 -->
@@ -59,16 +65,3 @@
       where rnumber = #{rnumber}
    </update>
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-

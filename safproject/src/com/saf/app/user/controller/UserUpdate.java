@@ -25,11 +25,11 @@ public class UserUpdate implements Action{
 //		String uid = "1";
 		
 		
-		user.setUnum((Integer)req.getSession().getAttribute("unum"));
+		int unum = ((Integer)req.getSession().getAttribute("unum"));
 		
 		
 		
-//		req.setAttribute("user", dao.getUserInfo(unum));
+		req.setAttribute("user", dao.getUserInfo(unum));
 		
 		
 		af.setRedirect(false);

@@ -9,16 +9,16 @@
 	</select>
 	
 	<!-- 회원 가입 -->
-	<insert id="join" parameterType="userVO">
-		insert into user (uNum, uId, uPhone, uPw, uName, uAddr, uEmail)
-		values (#{uNum}, #{uId}, #{uPhone}, #{uPw}, #{uName}, #{uAddr}, {uEmail})
-		
-	</insert>
+   <insert id="join" parameterType="UserVO">
+      insert into user (uid, upw, uphone, uimage, uname, uaddr1, uaddr2, uemail)
+      values (#{uid}, #{upw}, #{uphone}, #{uimage}, #{uname}, #{uaddr1}, #{uaddr2}, #{uemail})
+      
+   </insert>
 	
 	<!-- 로그인 -->
-	<select id="login" parameterType="map" resultType="_int">
-		select uNum from user where uId=#{uId} and uPw=#{uPw}
-	</select>
+   <select id="login" parameterType="map" resultType="_int">
+      select unum from user where uid=#{uid} and upw=#{upw}
+   </select>
 	
 	<!-- 회원 정보 수정 -->
 	<update id="updateUser" parameterType="userVO">
@@ -42,7 +42,7 @@
 	</update>
 	
 	<!-- 회원탈퇴 -->
-	<delete id="delUser" parameterType="userVO">
+	<delete id="delUser" parameterType="_int">
 		delete from user where unum = #{unum}
 	</delete>
 	

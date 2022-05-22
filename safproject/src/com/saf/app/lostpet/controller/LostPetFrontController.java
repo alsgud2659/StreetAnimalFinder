@@ -29,7 +29,9 @@ public class LostPetFrontController extends HttpServlet {
 		ActionForward af = null;
 		
 		if(command.equals("/lostpet/controller/LostPetListOk.lo")) {
+			System.out.print("도착했니");
 			af = new LostPetListOk().execute(req, resp); 
+			
 			
 		}else if(command.equals("/lostpet/controller/LostPetDetailOk.lo")) {
 			af = new LostPetDetailOk().execute(req, resp);

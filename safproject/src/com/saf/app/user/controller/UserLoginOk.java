@@ -13,28 +13,37 @@ import com.saf.app.user.dao.UserDAO;
 
 public class UserLoginOk implements Action{
 
-	@Override
-	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		HashMap<String, String> loginMap = new HashMap<>();
-		UserDAO dao = new UserDAO();
-		int userNumber = 0;
-		ActionForward af = new ActionForward();
-		HttpSession session = req.getSession();
-
-		loginMap.put("userId", req.getParameter("userId"));
-		loginMap.put("userPw", req.getParameter("userPw"));
-		
-		userNumber = dao.login(loginMap);
-		if(userNumber == 0) {//濡쒓렇�씤 �떎�뙣
-			af.setRedirect(false);
-			af.setPath("/user/UserLogin.me?code=" + userNumber);
-		}else {//濡쒓렇�씤 �꽦怨�
-			session.setAttribute("userNumber", userNumber);
-			af.setRedirect(true);
-			af.setPath(req.getContextPath() + "/board/BoardListOk.bo");
-		}
-		
-		return af;
-	}
-
+   @Override
+   public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+      
+      System.out.println("userloginok excute");
+      
+      req.setCharacterEncoding("UTF-8");
+      resp.setCharacterEncoding("UTF-8");
+      
+      ActionForward forward = new ActionForward();
+      UserDAO dao = new UserDAO();
+      HttpSession session = req.getSession();
+      
+      
+      String id = req.getParameter("id");
+      String pw = req.getParameter("pw");
+      
+      System.out.println("id : " + id);
+      System.out.println("pw : " + pw);
+      
+      int userNumber = dao.login(id,pw);
+      
+      forward.setRedirect(true);
+      
+      if(userNumber != 0) { //로그인 성공
+         session.setAttribute("unum", userNumber);
+         forward.setPath(req.getContextPath() + "/mainpage/main.jsp");
+      
+      }else {
+         forward.setPath(req.getContextPath() + "/login/login.jsp?error=true");
+      }
+      
+      return forward;
+   }
 }

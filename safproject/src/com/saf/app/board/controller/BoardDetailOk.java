@@ -18,26 +18,19 @@ public class BoardDetailOk implements Action {
       resp.setCharacterEncoding("UTF-8");
       
       BoardDAO bDao = new BoardDAO();
-      FilesDAO fDao = new FilesDAO();
       ActionForward af = new ActionForward();
       
       //사용자가 선택한 게시글 번호를 파라미터로 전달받는다.
       int bnumber = Integer.parseInt(req.getParameter("bnumber"));
-      bDao.selectDetail(bnumber);
-      int page = Integer.parseInt(req.getParameter("page"));
-      
-      
-      
+
       //게시글 번호로 조회한 게시글의 전체 정보를 requestScope에 저장한다.
       req.setAttribute("board", bDao.selectDetail(bnumber));
-      req.setAttribute("files", fDao.getFiles(bnumber));
-      req.setAttribute("page", page);
-      
+
       
       
       //requestScope에 데이터를 담았기 때문에 forward로 페이지까지 req객체를 유지한다.
       af.setRedirect(false);
-      af.setPath("/board/boardDetail.jsp");
+      af.setPath("/board/new-write-detail.jsp");
       
       return af;
    }

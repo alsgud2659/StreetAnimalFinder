@@ -303,6 +303,7 @@
                                                 <input name="uid" type="text" maxlength="30" id="join_id"
                                                     class="join_form_control dlb wid200" placeholder="공백,특수문자 없이 4~12자"
                                                     style="ime-mode: disabled">
+                                                <button id="checkIdBtn" type="button" class="btn btn-default">아이디 중복 확인</button>&nbsp;
                                                 <span id="CheckID"></span>
                                                 <div class="div_info_maroon sstc">
                                                     <span id="join_id_info" class="sstc helptext"></span>
@@ -679,5 +680,29 @@
 
     
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+   $("button#checkIdBtn").on("click", function(){
+      $.ajax({
+         url: "${pageContext.request.contextPath}/user/controller/UserCheckIdOk.us",
+         type: "get",
+         data: {uid: $("input[name='uid']").val()},
+         contextType: "application/json; charset=utf-8",
+         dataType: "text",
+         success: function(result){
+            console.log(result);
+            $("#CheckID").css("color", result.includes("가능") ? "blue" : "red");
+            $("#CheckID").text(result.trim());
+         }, error: function(a, b, c){
+            console.log(a, b, c);
+         }
+      });      
+   })
 
+</script>
 </html></html>
+
+
+
+
+
