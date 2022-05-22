@@ -80,7 +80,7 @@
 @media (min-width: 0){
     .find-id{
         margin-left: 0.71429rem !important;
-        font-size: 0.85714 !important;
+        font-size: 0.7 !important;
     }
 }
 
@@ -250,11 +250,11 @@ button{
 }
 
 .find-id{
-    font-size: 0.85714rem;
+    font-size: 0.7rem !important;
 }
 
 .find-pw{
-    font-size: 0.85714rem;
+    font-size: 0.7rem !important; 
 }
 
 .status-box{

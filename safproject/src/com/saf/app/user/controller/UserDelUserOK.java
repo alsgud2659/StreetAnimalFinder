@@ -20,15 +20,12 @@ public class UserDelUserOK implements Action{
 		UserVO user = new UserVO();
 		UserDAO dao = new UserDAO();
 		
-		int ustatus = 0;
-		String uid = "1";
-		
-		user.setUid(uid);
-		user.setUstatus(ustatus);
+	
+		int unum = ((Integer)req.getSession().getAttribute("unum"));
 		
 
 		
-		dao.delUser(user);
+		dao.delUser(unum);
 		
 		af.setRedirect(true);
 		//redirect로 전송할 때 contextPath가 사라지기 때문에

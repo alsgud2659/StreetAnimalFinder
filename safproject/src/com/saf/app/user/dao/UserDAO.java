@@ -1,6 +1,6 @@
 package com.saf.app.user.dao;
 
-import java.util.Map;
+import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -28,13 +28,15 @@ public class UserDAO {
 		sqlSession.insert("User.join", user);
 	}
 
-	//로그인
-
-	public int login(Map<String, String> loginMap) {
-		int userNumber = 0;
-		try {userNumber = sqlSession.selectOne("User.login", loginMap);} catch (Exception e) {;}
-		return userNumber;
-	}
+	// 로그인
+    public int login(String id, String pw) {
+       HashMap<String, String> userMap = new HashMap<>();
+       userMap.put("uid", id);
+       userMap.put("upw", pw);
+       
+       Object login = sqlSession.selectOne("User.login", userMap);
+       return login == null ? 0 : Integer.parseInt(String.valueOf(login));
+    }
 
 	
 	//회원 정보 조회
@@ -63,7 +65,7 @@ public class UserDAO {
 	}
 
 	// 회원 탈퇴
-	public void delUser(UserVO unum) {
+	public void delUser(int unum) {
 		sqlSession.delete("User.delUser", unum);
 	}
 	

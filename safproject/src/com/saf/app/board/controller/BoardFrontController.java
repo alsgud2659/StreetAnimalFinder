@@ -34,7 +34,7 @@ public class BoardFrontController extends HttpServlet {
             e.printStackTrace();
          }
          
-      }else if(command.equals("/board/controller/BoardDetail.bo")) {
+      }else if(command.equals("/board/controller/BoardDetailOk.bo")) {
          try {
             af = new BoardDetailOk().execute(req,resp);
          } catch(Exception e) {
@@ -43,8 +43,9 @@ public class BoardFrontController extends HttpServlet {
          
       }else if(command.equals("/board/controller/BoardWrite.bo")) {
          af = new BoardWrite().execute(req, resp);
-         af.setRedirect(false);
-         af.setPath("/board/new-write-detail.jsp");
+      }else if(command.equals("/board/controller/BoardWriteOk.bo")) {
+          af = new BoardWriteOk().execute(req, resp);
+            
          
       }else if(command.equals("/board/controller/BoardListOk.bo")) {
          try {
@@ -62,7 +63,11 @@ public class BoardFrontController extends HttpServlet {
          }
 
       }else if(command.equals("/board/controller/BoardUpdateOk.bo")) {
-         //af = new UserLogout().execute(req, resp);
+    	  try {
+    	  	af = new BoardUpdateOk().execute(req, resp);
+    	  } catch(Exception e) {
+              e.printStackTrace();
+          } 
       }
       
       //전송안할지
@@ -82,18 +87,3 @@ public class BoardFrontController extends HttpServlet {
       }
    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

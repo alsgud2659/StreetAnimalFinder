@@ -13,13 +13,13 @@
 	</delete>
 	
 	<!--게시판  첨부파일 가져오기 -->
-	<select id="select" parameterType="_int" resultType="fileVO">
+	<select id="select" parameterType="_int" resultType="boardVO">
 		select fname, bnumber, foriginal from file 
 		where bnumber = #{bnumber}
 	</select>
 	
 	<!-- 실종동물 첨부파일 추가 -->
-	<insert id="lostpetinsertfile" parameterType="fileVO">
+	<insert id="lostpetinsertfile" parameterType="boardVO">
 		insert into file (fname, lpnumber, foriginal) 
 		values(#{fname}, #{lpnumber}, #{foriginal})
 	</insert>
@@ -30,13 +30,13 @@
 	</delete>
 	
 	<!-- 실종동물 첨부파일 가져오기 -->
-	<select id="lostpetselectfile" parameterType="_int" resultType="fileVO">
+	<select id="lostpetselectfile" parameterType="_int" resultType="boardVO">
 		select fname, lpnumber, foriginal from file 
 		where lpnumber = #{lpnumber}
 	</select>
 	
 	<!-- 유저 프로필 첨부파일 추가 -->
-	<insert id="userinsertfile" parameterType="fileVO">
+	<insert id="userinsertfile" parameterType="boardVO">
 		insert into file (fname, uid, foriginal) 
 		values(#{fname}, #{uid}, #{foriginal})
 	</insert>
@@ -47,7 +47,7 @@
 	</delete>
 	
 	<!-- 유저 프로필 첨부파일 가져오기 -->
-	<select id="userselectfile" parameterType="_int" resultType="fileVO">
+	<select id="userselectfile" parameterType="_int" resultType="boardVO">
 		select fname, uid, foriginal from file 
 		where uid = #{uid}
 	</select>

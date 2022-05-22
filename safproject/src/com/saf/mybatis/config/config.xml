@@ -8,12 +8,12 @@
 		<typeAlias type="com.saf.app.board.vo.BoardReplyDTO" alias="boardReplyDTO"/>
 		<typeAlias type="com.saf.app.board.vo.BoardVO" alias="boardVO"/>
 		<typeAlias type="com.saf.app.board.vo.BoardDTO" alias="boardDTO"/>
-		<!-- <typeAlias type="com.saf.app.board.vo.BoardFileVO" alias="boardFileVO"/> -->
-		<!-- <typeAlias type="com.saf.app.lostpet.vo.LostPetReplyVO" alias="lostpetReplyVO"/> -->
-		<!-- <typeAlias type="com.saf.app.lostpet.vo.LostpetReplyDTO" alias="lostpetReplyDTO"/> -->
-		<!-- <typeAlias type="com.saf.app.lostpet.vo.LostpetVO" alias="lostpetVO"/> -->
-		<!-- <typeAlias type="com.saf.app.lostpet.vo.LostpetDTO" alias="lostpetDTO"/> -->
-		<!-- <typeAlias type="com.saf.app.lostpet.vo.LostpetFileVO" alias="lostpetFileVO"/> -->
+		<typeAlias type="com.saf.app.board.vo.BoardFileVO" alias="boardFileVO"/>
+		<typeAlias type="com.saf.app.lostpet.vo.LostPetReplyVO" alias="LostPetReplyVO"/>
+		<typeAlias type="com.saf.app.lostpet.vo.LostPetReplyDTO" alias="LostPetReplyDTO"/>
+		<typeAlias type="com.saf.app.lostpet.vo.LostPetVO" alias="lostPetVO"/>
+		<typeAlias type="com.saf.app.lostpet.vo.LostPetDTO" alias="lostPetDTO"/>
+		<typeAlias type="com.saf.app.lostpet.vo.LostPetFilesVO" alias="LostPetFilesVO"/>
 	</typeAliases>
 
 	<environments default="development">
@@ -32,7 +32,7 @@
 		<mapper resource="com/saf/mybatis/mapper/user.xml"/>
 		<mapper resource="com/saf/mybatis/mapper/board.xml"/>
 		<!-- <mapper resource="com/saf/mybatis/mapper/file.xml"/> -->
-		<!-- <mapper resource="com/saf/mybatis/mapper/lostpet.xml"/> -->
+		<mapper resource="com/saf/mybatis/mapper/lostpet.xml"/>
 	</mappers>
 	
 </configuration>

@@ -27,11 +27,11 @@
               <!-- 탑바 right 5-2 -->
               <div class="col-auto g-pos-rel g-px-15">
                 <ul class="ul list-inline g-mt-minus-10">
-                  <li class="list-inline-item"><a class="g-color-topbar" href="${pageContext.request.contextPath}/login/login.jsp">로그아웃</a></li>
+                  <li class="list-inline-item"><a class="g-color-topbar" href="${pageContext.request.contextPath}/login/login.jsp">로그인</a></li>
                   <li class="list-inline-item g-color-topbar">|</li>
                   <li class="list-inline-item"><a class="g-color-topbar" href="${pageContext.request.contextPath}/join/join.jsp">회원가입</a></li>
                   <li class="list-inline-item g-color-topbar">|</li>
-                  <li class="list-inline-item"><a class="g-color-topbar" href="${pageContext.request.contextPath}/user/controller/UserUpdate.us">마이페이지</a></li>
+                  <li class="list-inline-item"><a class="g-color-topbar" href="${pageContext.request.contextPath}/mypage/mypage_all.jsp">마이페이지</a></li>
                 </ul>
 
               </div>

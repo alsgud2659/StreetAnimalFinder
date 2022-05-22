@@ -44,19 +44,8 @@ public class BoardDAO {
    }
    
    //게시글 수정
-   public void update(BoardVO board) {
-      sqlSession.update("Board.update", board);
+   public void updateBoard(BoardVO board) {
+      sqlSession.update("Board.updateBoard", board);
    }
    
 }
-
-
-
-
-
-
-
-
-
-
-

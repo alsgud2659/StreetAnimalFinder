@@ -10,24 +10,28 @@ import com.saf.app.action.ActionForward;
 import com.saf.app.user.dao.UserDAO;
 
 public class BoardWrite implements Action{
-	@Override
-	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		
-		HttpSession session = req.getSession();
-		UserDAO uDao = new UserDAO();
-		ActionForward af = new ActionForward();
-		
-		String userId = uDao.getInfo((Integer)session.getAttribute("userNumber")).getUserId();
-		
-		req.setAttribute("userId", userId);
-		
-		af.setRedirect(false);
-		af.setPath("/app/board/controller/boardWrite.jsp");
-		
-		return af;
-	}
+   @Override
+   public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+      
+      HttpSession session = req.getSession();
+      UserDAO uDao = new UserDAO();
+      ActionForward af = new ActionForward();
+      
+      
+      System.out.print(session.getAttribute("unum"));
+      
+      String buid = uDao.getUserInfo((Integer)session.getAttribute("unum")).getUid();
+      
+      System.out.print(buid);
+      
+      req.setAttribute("buid", buid);
+      
+      af.setRedirect(false);
+      af.setPath("/app/board/controller/BoardWriteOk.bo");
+      
+      return af;
+   }
 }
-
 
 
 

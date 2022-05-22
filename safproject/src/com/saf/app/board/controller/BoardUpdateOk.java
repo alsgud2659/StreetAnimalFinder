@@ -31,32 +31,31 @@ public class BoardUpdateOk implements Action {
       
       String uploadFolder = "C:\\aigb_0900_LMH\\jsp\\workspace\\safproject\\WebContent\\file\\getBlob";//변경할것
       int fileSize = 1024 * 1024 * 5; //5Mb
-      int bnumber = 0, page = 0;
+      int bnumber = 0;
       
       //파일을 form으로 전달할 때 MultipartRequest로 받는다.
       MultipartRequest multi = new MultipartRequest(req, uploadFolder, fileSize, "UTF-8", new DefaultFileRenamePolicy());
       
-      page = Integer.parseInt(multi.getParameter("page"));
       bnumber = Integer.parseInt(multi.getParameter("bnumber"));
       board.setBtitle(multi.getParameter("btitle"));
       board.setBcontent(multi.getParameter("bcontent"));
       board.setBnumber(bnumber);
       
-      files = fDao.getFiles(bnumber);
+//      files = fDao.getFiles(bnumber);
       
 
-      bDao.update(board);
-      fDao.deleteFiles(bnumber);
-      fDao.insert(multi, bnumber);
-
+      bDao.updateBoard(board);
+//      fDao.deleteFiles(bnumber);
+//      fDao.insert(multi, bnumber);
+//
+//      
+//      files.forEach(file -> {
+//         File f = new File(uploadFolder, file.getFname());
+//         if(f.exists()) {f.delete();}
+//      });
       
-      files.forEach(file -> {
-         File f = new File(uploadFolder, file.getFname());
-         if(f.exists()) {f.delete();}
-      });
-      
 
-      af.setRedirect(true);
+      af.setRedirect(false);
       //상세보기
 //      af.setPath(req.getContextPath() + "/board/BoardDetailOk.bo?boardNumber=" + boardNumber);
       
@@ -64,16 +63,9 @@ public class BoardUpdateOk implements Action {
 //      af.setPath(req.getContextPath() + "/board/BoardListOk.bo");
       
       //목록보기(페이지 기억)
-      af.setPath(req.getContextPath() + "/board/BoardListOk.bo?page=" + page);
+      af.setPath("/board/controller/BoardDetailOk.bo?bnumber=" + bnumber);
       
       return af;
    }
 
 }
-
-
-
-
-
-
-

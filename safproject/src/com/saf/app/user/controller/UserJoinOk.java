@@ -35,7 +35,7 @@ public class UserJoinOk implements Action{
       af.setRedirect(true);
       //redirect             contextPath                 
       // ̸     ٿ          
-      af.setPath(req.getContextPath() + "/user/UserLogin.me");
+      af.setPath(req.getContextPath() + "/login/login.jsp");
       
       return af;
    }

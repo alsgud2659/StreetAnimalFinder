@@ -20,24 +20,24 @@ public class BoardDeleteOk implements Action{
       
       String uploadFolder = "C:\\aigb_0900_LMH\\jsp\\workspace\\safproject\\WebContent\\file\\getBlob";//변경할것
       int bnumber = Integer.parseInt(req.getParameter("bnumber"));
-      FilesDAO fDao = new FilesDAO();
+//    FilesDAO fDao = new FilesDAO();
       BoardDAO bDao = new BoardDAO();
       ActionForward af = new ActionForward();
       
-      List<FilesVO> files = fDao.getFiles(bnumber);
+//    List<FilesVO> files = fDao.getFiles(bnumber);
       
-      for (int i = 0; i < files.size(); i++) {
-         File f = new File(uploadFolder, files.get(i).getFname());
-         if(f.exists()) {
-            f.delete();
-         }
-      }
+//    for (int i = 0; i < files.size(); i++) {
+//       File f = new File(uploadFolder, files.get(i).getFname());
+//       if(f.exists()) {
+//          f.delete();
+//       }
+//    }
       
-      fDao.deleteFiles(bnumber);
+//    fDao.deleteFiles(bnumber);
       bDao.deleteBoard(bnumber);
       
       af.setRedirect(false);
-      af.setPath(req.getContextPath() + "/board/BoardListOk.bo");
+      af.setPath("/board/controller/BoardListOk.bo");
       
       return af;
    }

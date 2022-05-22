@@ -76,7 +76,6 @@ body {
 .col-11,
 .col-12,
 .col,
-.col-auto,
 .col-sm-1,
 .col-sm-2,
 .col-sm-3,
@@ -844,11 +843,10 @@ div.right {
 
 .board-insta {
 
-	padding-top: 53px;
+   padding-top: 53px;
 }
 /* write-detail 댓글 옆 버튼 */
 .reply-right{
-	float:right;
-	list-style: none;
+   float:right;
+   list-style: none;
 }
-
