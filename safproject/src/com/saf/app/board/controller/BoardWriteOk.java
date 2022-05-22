@@ -26,12 +26,12 @@ public class BoardWriteOk implements Action {
       
       //요청객체, 업로드폴더 경로, 파일의 크기, 인코딩 방식, 이름변경정책
       //MultipartRequest multi = new MultipartRequest(req, uploadFolder, fileSize, "UTF-8", new DefaultFileRenamePolicy());
-      System.out.print("1");
       
       board.setBtitle(req.getParameter("btitle"));
       board.setBurl(req.getParameter("burl"));
       board.setBcontent(req.getParameter("bcontent"));
       board.setBuid(req.getParameter("buid"));
+
       
       /*System.out.println(board.getBtitle());
       System.out.println(board.getBurl());

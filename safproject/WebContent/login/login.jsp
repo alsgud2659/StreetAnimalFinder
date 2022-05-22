@@ -38,7 +38,7 @@
       </div>
       <div class="write-login-form">
          <label class="login-pw g-brd-main--hover">비밀번호:</label>
-         <input class="form-control" name="pw" type="text">
+         <input class="form-control" name="pw" type="password">
          <div class="row status-box">
 
             <div class="col align-self-center">

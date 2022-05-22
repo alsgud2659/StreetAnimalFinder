@@ -17,17 +17,18 @@ public class BoardWrite implements Action{
       UserDAO uDao = new UserDAO();
       ActionForward af = new ActionForward();
       
-      
+    
       System.out.print(session.getAttribute("unum"));
       
       String buid = uDao.getUserInfo((Integer)session.getAttribute("unum")).getUid();
       
       System.out.print(buid);
+
       
       req.setAttribute("buid", buid);
       
       af.setRedirect(false);
-      af.setPath("/app/board/controller/BoardWriteOk.bo");
+      af.setPath("/board/new-write.jsp");
       
       return af;
    }

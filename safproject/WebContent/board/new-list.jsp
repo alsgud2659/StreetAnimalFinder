@@ -31,7 +31,7 @@
                     </div>-->
                     <div class="col-4">
                         <!-- GA 클래스 추가 -->
-                        <a href="${pageContext.request.contextPath}/board/new-write.jsp"
+                        <a href="${pageContext.request.contextPath}/board/controller/BoardWrite.bo"
                             class="btn btn-md btn-block btn-primary g-color-white g-mr-10 g-mb-15 g-brd-0 adopt_application_event">
                             글쓰기
                         </a>

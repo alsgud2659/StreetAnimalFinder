@@ -34,12 +34,12 @@
             <div class="join_container_fluid nm_h_underline smbc" id="join_nm_h_underline">
             </div>
         </div>
-   		<c:set var="lostpet" value="${lostpet}"/>
-   		<c:set var="files" value="${files}"/>
+         <c:set var="lostpet" value="${lostpet}"/>
+         <c:set var="files" value="${files}"/>
     <div class="bg-light space-1">
         <div class="container g-mt-30 py-1 ">
             <div class="shadow-sm p-0">
-                <h2 id="breadcrumb-title" class="h2 g-font-size-28 font-weight-bold g-line-height-1">실종동물 
+                <h2 id="breadcrumb-title" class="h2 g-font-size-28 font-weight-bold g-line-height-1">실종동물 ${lostpet.getLparea2()}
                                             <span style="color: #019267 !important;">
                         <script>
       if ( '<c:out value="${lostpet.getLpstatus()}"/>' == '1' ) {
@@ -161,17 +161,17 @@
                     <div class="content te p-0">
                      <!-- 첨부파일 목록 -->
                            <c:choose>
-                           	<c:when test="${files != null and fn:length(files) > 0}">
-	                           <c:forEach var="file" items="${files}">
-	                           <img class="img" src="${pageContext.request.contextPath}/lostpet/animal_image/${file.getFileName()}"
+                              <c:when test="${files != null and fn:length(files) > 0}">
+                              <c:forEach var="file" items="${files}">
+                              <img class="img" src="${pageContext.request.contextPath}/lostpet/images/${file.getFileName()}"
                             style="height: 350px; width: 350px;">
-		                           
-		                           </a>
-		                           <br>
-	                           </c:forEach>
-	                       	</c:when>
-	                       	<c:otherwise>
-	                       	</c:otherwise>
+                                 
+                                 </a>
+                                 <br>
+                              </c:forEach>
+                             </c:when>
+                             <c:otherwise>
+                             </c:otherwise>
                            </c:choose>
                         <hr />
                        ${lostpet.getLpcontent()} 
@@ -227,14 +227,14 @@
     
 </body>
             <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6cf3e9ffc133b6ee746032c7a1b992c7&libraries=services"></script>
-	            <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6cf3e9ffc133b6ee746032c7a1b992c7"></script>
+               <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6cf3e9ffc133b6ee746032c7a1b992c7"></script>
 <script>
 console.log('<c:out value="${lostpet.getLparea1()}"/>');
 var mapContainer = document.getElementById('img'), // 지도를 표시할 div 
 mapOption = {
-	center : new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-	draggable : false,
-	level : 3
+   center : new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+   draggable : false,
+   level : 3
 // 지도의 확대 레벨
 };
 
@@ -247,18 +247,18 @@ geocoder.addressSearch('<c:out value="${lostpet.getLparea1()}"/>', function(resu
      if (status === kakao.maps.services.Status.OK) {
         var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
         var circle = new kakao.maps.Circle({
-			center : coords, // 원의 중심좌표 입니다 
-			radius : 100, // 미터 단위의 원의 반지름입니다 
-			strokeWeight : 5, // 선의 두께입니다 
-			strokeColor : '#75B8FA', // 선의 색깔입니다
-			strokeOpacity : 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-			strokeStyle : 'dashed', // 선의 스타일 입니다
-			fillColor : '#CFE7FF', // 채우기 색깔입니다
-			fillOpacity : 0.7
-		// 채우기 불투명도 입니다   
-		});
-		
-		circle.setMap(map);
+         center : coords, // 원의 중심좌표 입니다 
+         radius : 100, // 미터 단위의 원의 반지름입니다 
+         strokeWeight : 5, // 선의 두께입니다 
+         strokeColor : '#75B8FA', // 선의 색깔입니다
+         strokeOpacity : 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+         strokeStyle : 'dashed', // 선의 스타일 입니다
+         fillColor : '#CFE7FF', // 채우기 색깔입니다
+         fillOpacity : 0.7
+      // 채우기 불투명도 입니다   
+      });
+      
+      circle.setMap(map);
         // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
         map.setCenter(coords);
     } 
@@ -280,13 +280,13 @@ const open = () => {
     document.querySelector(".bg").addEventListener("click", close);
     
     
-    function send(){	
-    		if(!findReplyWriteForm.reply.value){
-    			alert("댓글을 입력해주세요.");
-    			return false;
-    		}
-    		else return true;
-    	}
+    function send(){   
+          if(!findReplyWriteForm.reply.value){
+             alert("댓글을 입력해주세요.");
+             return false;
+          }
+          else return true;
+       }
 </script>
 
 </html>

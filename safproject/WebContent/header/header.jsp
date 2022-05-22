@@ -66,7 +66,7 @@
             <a href="${pageContext.request.contextPath}/faq/faq.jsp"style="text-decoration:none; ">전문가FAQ</a>
           </li>
           <li class="list-inline-header">
-            <a href="${pageContext.request.contextPath}/board/new-list.jsp"style="text-decoration:none; ">커뮤니티</a>
+            <a href="${pageContext.request.contextPath}/board/controller/BoardListOk.bo"style="text-decoration:none; ">커뮤니티</a>
 <%--             <ul class="showmenu list-drop">
               <li class="hide-list"><a  class="drop-a"href="${pageContext.request.contextPath}/board/new-list.jsp">소통해요</a></li>
               <li class="hide-list"><a  class="drop-a"href="${pageContext.request.contextPath}/board/new-list.jsp">내 반려동물 자랑</a></li>
