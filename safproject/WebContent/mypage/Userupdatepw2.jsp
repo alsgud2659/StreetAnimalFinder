@@ -11,7 +11,6 @@
 
 <body>
   <jsp:include page="/header/header.jsp"/>
-  <c:set var="user" value="${user}"/>
 
     <div class="header-wrap">
         <div>
@@ -32,7 +31,7 @@
     <section class="mypage-menu">
         <div>
             <ul class="menu-wrap">
-           <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/user/controller/UserUpdateProfile.us">내 프로필 보기</a></li>
+               <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/user/controller/UserUpdateProfile.us">내 프로필 보기</a></li>
                 <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/user/controller/UserUpdate.us">회원정보 수정</a></li>
                 <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/mypage/Userupdatepw.jsp">비밀번호 변경</a></li>
                 <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/mypage/Userdeluser.jsp">회원 탈퇴</a></li>
@@ -41,61 +40,87 @@
     </section>
 
     <h2 class="tit">
-        <span id="modi" class="my-tit">프로필 수정</span>
+        <span id="modi" class="my-tit">비밀번호 변경</span>
     </h2>
 
     <h3 class="sub-tit">
-        <span id="modi" class="my-tit">스애파 프로필 사진과 이름을 수정 하실 수 있습니다.</span>
+        <span id="modi" class="my-tit">비밀번호를 변경합니다.</span>
     </h3>
-    
+
     <section class="change-form">
-        <form action="${pageContext.request.contextPath}/user/controller/UserUpdateProfileOK.us" method="post">
+        <form action="${pageContext.request.contextPath}/user/controller/UserUpdatePwOK.us">
             <table class="modi-table1">
                 <tbody>
                     <tr class="modi-table-tr">
-                        <th class="modi-table-th" scope="row">
+                        <th class="modi-table-th">
                             <span class="col1-sp">
-                                프로필 사진
+                                현재 비밀번호
                             </span>
                         </th>
                         <td class="modi-table-td">
                             <div class="modi-item">
-                                <div class="photo_box">
-                                    <img src="https://static.nid.naver.com/images/web/user/default.png?type=s160" width="100" height="100" id="img_source">
-                                    <span class="mask"></span>
-                                </div>
-                                <div class="btn_area">
-                                    <span class="btn_file">
-                                        <label for="inputImage" class="btn-in-form">사진변경</label>
-                                        <input type="file" id="inputImage" name="uimage" accept="image/*" style="display:none">
-                                    </span>
-                                    <a href="#" class="btn-in-form" style="margin-left: 8px; text-decoration: none;">삭제</a>
+                                <input type="password" name="upwnow" id="modi-id" class="form-control">
+                                <div class="div_info_maroon">
+                                    <span class="setSubTextColor"></span>
                                 </div>
                             </div>
                         </td>
                     </tr>
                     <tr class="modi-table-tr">
                         <th class="modi-table-th">
-                            <span class="col1-sp">이름(닉네임)</span>
+                            <span class="col1-sp">새 비밀번호</span>
                         </th>
                         <td class="modi-table-td">
                             <div class="modi-item">
-                                <input type="text" class="form-control" name="uname" id="inputNick" value="${user.getUname()}"> &nbsp;
-                                12글자까지 입력할 수 있습니다.
+                                <input type="text" name="upw" id="modi-name" maxlength="25" class="form-control">
+                                <div class="div_info_maroon">
+                                    <span class="setSubTextColor"></span>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="modi-table-tr">
+                        <th class="modi-table-th">
+                            <span class="col1-sp">새 비밀번호 확인</span>
+                        </th>
+                        <td class="modi-table-td">
+                            <div class="modi-item">
+                                <input type="text" name="upwcheck" id="modi-name" maxlength="25" class="form-control">
+                                <div class="div_info_maroon">
+                                    <span class="setSubTextColor"></span>
+                                </div>
                             </div>
                         </td>
                     </tr>
                 </tbody>
             </table>
+            <div>
+                <span>
+                    <ul>
+                        <li>
+                            영문대문자, 영문소문자, 숫자, 특수기호 중 3가지를 포함한 8자리 이상의 암호나, 2가지를 포함한 10자리 이상의 암호를 사용할 수 있습니다.
+                        </li>
+                        <li>
+                            쉬운 비밀번호나 자주 쓰는 사이트의 비밀번호가 같을 경우, 도용되기 쉬우므로 주기적으로 변경하셔서 사용하는 것이 좋습니다.
+                        </li>
+                        <li>
+                            아이디와 주민등록번호, 생일, 전화번호 등 개인정보와 관련된 숫자, 연속된 숫자, 반복된 문자 등 다른 사람이 쉽게 알아 낼 수 있는 비밀번호는 개인정보 유출의
+                            위험이 높으므로 사용하지 않도록 주의부탁드립니다.
+                        </li>
+                    </ul>
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;문의가 있으실 경우 회원,모금팀 info@ekara.org, 02-6283-0999로 연락 부탁드립니다.
+                </span>
+            </div>
 
             <div style="vertical-align: bottom; text-align: center; padding-bottom:10px">
-                <input type="submit" name="leave_btn" id="leave_btn" value="적용" class="btn-custom">
-                <input type="submit" name="cancel_btn" id="leave_cancel_btn" value="취소" class="btn-custom" style="background-color: #ffffff; color:black">
+                <input type="submit" name="" id="" value="확인" class="btn-custom">
+                <input type="submit" name="" id="" value="취소" class="btn-custom" style="background-color: #ffffff; color:black">
             </div>
         </form>
     </section>
 
-    
 
     <div class="footer-wrap">
         <div class="footer">

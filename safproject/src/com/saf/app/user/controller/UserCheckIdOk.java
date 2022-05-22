@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 
-import com.saf.action.Action;
-import com.saf.action.ActionForward;
+import com.saf.app.action.Action;
+import com.saf.app.action.ActionForward;
 import com.saf.app.user.dao.UserDAO;
 
 public class UserCheckIdOk implements Action{

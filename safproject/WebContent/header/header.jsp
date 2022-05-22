@@ -31,7 +31,7 @@
                   <li class="list-inline-item g-color-topbar">|</li>
                   <li class="list-inline-item"><a class="g-color-topbar" href="${pageContext.request.contextPath}/join/join.jsp">회원가입</a></li>
                   <li class="list-inline-item g-color-topbar">|</li>
-                  <li class="list-inline-item"><a class="g-color-topbar" href="${pageContext.request.contextPath}/mypage/mypage_all.jsp">마이페이지</a></li>
+                  <li class="list-inline-item"><a class="g-color-topbar" href="${pageContext.request.contextPath}/user/controller/UserUpdateProfile.us">마이페이지</a></li>
                 </ul>
 
               </div>

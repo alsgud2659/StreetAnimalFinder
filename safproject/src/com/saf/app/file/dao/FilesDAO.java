@@ -1,15 +1,14 @@
 package com.saf.app.file.dao;
 
 import java.util.Enumeration;
-
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import com.saf.app.board.vo.FilesVO;
-import com.saf.mybatis.config.MyBatisConfig;
 import com.oreilly.servlet.MultipartRequest;
+import com.saf.app.file.vo.FilesVO;
+import com.saf.mybatis.config.MyBatisConfig;
 
 public class FilesDAO {
 	SqlSessionFactory sqlSessionFactory = MyBatisConfig.getSqlsessoinFactory();
@@ -21,7 +20,7 @@ public class FilesDAO {
 	
 	//게시판 첨부파일 추가(SQL)
 	private void insert(FilesVO file) {
-		sqlSession.insert("Files.insert", file);
+		sqlSession.insert("File.insert", file);
 	}
 	
 	//게시판 첨부파일 추가(로직)
@@ -53,17 +52,17 @@ public class FilesDAO {
 	
 	//게시판 첨부파일 삭제
 	public void deleteFiles(int bnumber) {
-		sqlSession.delete("Files.delete", bnumber);
+		sqlSession.delete("File.delete", bnumber);
 	}
 	
 	//게시판 첨부파일 가져오기
 	public List<FilesVO> getFiles(int bnumber){
-		return sqlSession.selectList("Files.select", bnumber);
+		return sqlSession.selectList("File.select", bnumber);
 	}
 	
 	//실종동물 첨부파일 추가(SQL)
 		private void lostpetInsertFile(FilesVO file) {
-			sqlSession.insert("Files.lostpetinsertfile", file);
+			sqlSession.insert("File.lostpetinsertfile", file);
 		}
 		
 		//실종동물 첨부파일 추가(로직)
@@ -95,21 +94,21 @@ public class FilesDAO {
 		
 		//실종동물 첨부파일 삭제
 		public void lostpetDeleteFiles(int lpnumber) {
-			sqlSession.delete("Files.lostpetdeletefile", lpnumber);
+			sqlSession.delete("File.lostpetdeletefile", lpnumber);
 		}
 		
 		//실종동물 첨부파일 가져오기
 		public List<FilesVO> lostpetGetFiles(int lpnumber){
-			return sqlSession.selectList("Files.lostpetselectfile", lpnumber);
+			return sqlSession.selectList("File.lostpetselectfile", lpnumber);
 		}
 		
 		//유저 프로필 첨부파일 추가(SQL)
 		private void userInsertFile(FilesVO file) {
-			sqlSession.insert("Files.userinsertfile", file);
+			sqlSession.insert("File.userinsertfile", file);
 		}
 		
 		//유저 프로필  첨부파일 추가(로직)
-		public void userInsertFile(MultipartRequest multi, int unum) {
+		public void userInsertFile(MultipartRequest multi, String uid) {
 			FilesVO file = new FilesVO();
 			Enumeration<String> files = multi.getFileNames();
 			
@@ -129,20 +128,20 @@ public class FilesDAO {
 
 				file.setFname(fileName);
 				file.setForiginal(fileNameOriginal);
-				file.setUnum(unum);
+				file.setUid(uid);
 				
 				insert(file);
 			}
 		}
 		
 		//유저 프로필  첨부파일 삭제
-		public void userDeleteFiles(int unum) {
-			sqlSession.delete("Files.userdeletefile", unum);
+		public void userDeleteFiles(String uid) {
+			sqlSession.delete("File.userdeletefile", uid);
 		}
 		
 		//유저 프로필  첨부파일 가져오기
-		public List<FilesVO> userGetFiles(int unum){
-			return sqlSession.selectList("Files.userselectfile", unum);
+		public List<FilesVO> userGetFiles(String uid){
+			return sqlSession.selectList("File.userselectfile", uid);
 		}
 	
 }
