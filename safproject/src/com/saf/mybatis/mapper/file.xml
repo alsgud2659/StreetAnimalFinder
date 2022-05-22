@@ -37,19 +37,19 @@
 	
 	<!-- 유저 프로필 첨부파일 추가 -->
 	<insert id="userinsertfile" parameterType="fileVO">
-		insert into file (fname, unum, foriginal) 
-		values(#{fname}, #{unum}, #{foriginal})
+		insert into file (fname, uid, foriginal) 
+		values(#{fname}, #{uid}, #{foriginal})
 	</insert>
 	
 	<!-- 유저 프로필 첨부파일 삭제 -->
 	<delete id="userdeletefile" parameterType="_int">
-		delete from file where unum = #{unum}
+		delete from file where uid = #{uid}
 	</delete>
 	
 	<!-- 유저 프로필 첨부파일 가져오기 -->
 	<select id="userselectfile" parameterType="_int" resultType="fileVO">
-		select fname, unum, foriginal from file 
-		where unum = #{unum}
+		select fname, uid, foriginal from file 
+		where uid = #{uid}
 	</select>
 </mapper>
 

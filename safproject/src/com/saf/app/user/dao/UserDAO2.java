@@ -8,11 +8,11 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import com.saf.app.user.vo.UserVO;
 import com.saf.mybatis.config.MyBatisConfig;
 
-public class UserDAO {
+public class UserDAO2 {
 	SqlSessionFactory sqlSessionFactory = MyBatisConfig.getSqlsessoinFactory();
 	SqlSession sqlSession;
 	
-	public UserDAO() {
+	public UserDAO2() {
 		sqlSession = sqlSessionFactory.openSession(true);
 	}
 
@@ -42,10 +42,9 @@ public class UserDAO {
 //		return sqlSession.selectOne("User.getUserInfo", uid);
 //	}
 	
-	public UserVO getUserInfo(int unum) {
-		return sqlSession.selectOne("User.getUserInfo", unum);
+	public UserVO getUserInfo(String uid) {
+		return sqlSession.selectOne("User.getUserInfo", uid);
 	}
-
 
 	// 프로필 수정
 	public void updateUserProfile(UserVO user) {
@@ -63,7 +62,7 @@ public class UserDAO {
 	}
 
 	// 회원 탈퇴
-	public void delUser(UserVO unum) {
+	public void delUser(int unum) {
 		sqlSession.delete("User.delUser", unum);
 	}
 	

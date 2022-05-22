@@ -17,21 +17,24 @@ public class UserUpdate implements Action{
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		req.setCharacterEncoding("UTF-8");
 		
-//		HttpSession session = req.getSession();
+		HttpSession session = req.getSession();
 		ActionForward af = new ActionForward();
 		UserVO user = new UserVO();
 		UserDAO dao = new UserDAO();
 //		String uid = dao.getUserInfo((String)session.getAttribute("uid")).getUid();
-		String uid = "1";
+//		String uid = "1";
+		
+		
+		user.setUnum((Integer)req.getSession().getAttribute("unum"));
 		
 		
 		
-		req.setAttribute("user", dao.getUserInfo(uid));
+//		req.setAttribute("user", dao.getUserInfo(unum));
 		
 		
 		af.setRedirect(false);
 		
-		System.out.print(dao.getUserInfo(uid));
+		
 	
 		af.setPath("/mypage/Userupdate.jsp");
 		

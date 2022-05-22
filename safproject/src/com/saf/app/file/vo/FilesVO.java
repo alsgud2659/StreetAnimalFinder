@@ -5,7 +5,7 @@ public class FilesVO {
 	private String foriginal;
 	private int lpnumber;
 	private int bnumber;
-	private int unum;
+	private String uid;
 	
 	public String getFname() {
 		return fname;
@@ -31,20 +31,20 @@ public class FilesVO {
 	public void setBnumber(int bnumber) {
 		this.bnumber = bnumber;
 	}
-	public int getUnum() {
-		return unum;
+	public String getUid() {
+		return uid;
 	}
-	public void setUnum(int unum) {
-		this.unum = unum;
+	public void setUid(String uid) {
+		this.uid = uid;
 	}
 	
-	public FilesVO(String fname, String foriginal, int bnumber, int lpnumber, int unum) {
+	public FilesVO(String fname, String foriginal, int bnumber, int lpnumber, String uid) {
 		super();
 		this.fname = fname;
 		this.foriginal = foriginal;
 		this.lpnumber = lpnumber;
 		this.bnumber = bnumber;
-		this.unum = unum;
+		this.uid = uid;
 	}
 	
 	public FilesVO() {
