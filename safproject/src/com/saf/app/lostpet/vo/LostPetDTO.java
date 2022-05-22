@@ -9,9 +9,9 @@ public class LostPetDTO {
 	private String lparea3;
 	private String lpspecies;
 	private String lpgender;
+	private String lpage;
 	private String lpcolor;
 	private String lpbreed;
-	private String lpimage;
 	private int lpstatus;
 	private String lptime;
 	private String lpcontent;
@@ -28,15 +28,16 @@ public class LostPetDTO {
 		this.lparea3 = lostpetVO.getLparea3();
 		this.lpspecies = lostpetVO.getLpspecies();
 		this.lpgender = lostpetVO.getLpgender();
+		this.lpage= lostpetVO.getLpage();
 		this.lpcolor = lostpetVO.getLpcolor();
 		this.lpbreed = lostpetVO.getLpbreed();
-		this.lpimage = lostpetVO.getLpimage();
 		this.lpstatus = lostpetVO.getLpstatus();
 		this.lptime = lostpetVO.getLptime();
 		this.lpcontent = lostpetVO.getLpcontent();
 	}
 
 	public int getLpnumber() {
+		System.out.println("dto 도착");
 		return lpnumber;
 	}
 
@@ -83,6 +84,13 @@ public class LostPetDTO {
 	public void setLpgender(String lpgender) {
 		this.lpgender = lpgender;
 	}
+	public String getLpage() {
+		return lpage;
+	}
+
+	public void setLpage (String lpage) {
+		this.lpage = lpage;
+	}
 
 	public String getLpcolor() {
 		return lpcolor;
@@ -98,14 +106,6 @@ public class LostPetDTO {
 
 	public void setLpbreed(String lpbreed) {
 		this.lpbreed = lpbreed;
-	}
-
-	public String getLpimage() {
-		return lpimage;
-	}
-
-	public void setLpimage(String lpimage) {
-		this.lpimage = lpimage;
 	}
 
 	public int getLpstatus() {

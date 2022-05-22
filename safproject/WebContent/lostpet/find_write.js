@@ -40,18 +40,18 @@ function sample6_execDaumPostcode() {
                     extraAddr += data.bname;
                 }
                 // 건물명이 있고, 공동주택일 경우 추가한다.
-                if(data.buildingName !== '' && data.apartment === 'Y'){
-                    extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                }
+                //if(data.buildingName !== '' && data.apartment === 'Y'){
+                //    extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                //}
                 // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-                if(extraAddr !== ''){
-                    extraAddr = ' (' + extraAddr + ')';
-                }
+                //if(extraAddr !== ''){
+                //}
+                
                 // 조합된 참고항목을 해당 필드에 넣는다.
-                document.getElementById("sample6_extraAddress").value = extraAddr;
+             document.getElementById("sample6_extraAddress").value = extraAddr.substr(0, extraAddr.length - 0);
             
             } else {
-                document.getElementById("sample6_extraAddress").value = '';
+               document.getElementById("sample6_extraAddress").value = '';
             }
 
             // 우편번호와 주소 정보를 해당 필드에 넣는다.
@@ -92,8 +92,6 @@ function loadFile(input) {
 
 
 
-
-
   
   
   // 유효성 검사
@@ -101,50 +99,51 @@ function send(){
 console.log("check");
 	if(findWriteForm.lpstatus.value == 'none'){
 		alert("말머리를 선택해주세요.");
-		return;
+		return false;
 	}
 	
 	if(!findWriteForm.lparea1.value){
 		alert("실종지역(시군구)을 선택해주세요.");
-		return;
+		return false;
 	}
 	
 	if(!findWriteForm.lparea2.value){
 		alert("실종지역(읍면동)을 작성해주세요.");
-		return;
+		return false;
 	}
 	
 	if(!findWriteForm.lparea3.value){
 		alert("실종지역(상세 위치)을 작성해주세요.");
-		return;
+		return false;
 	}
-	
-	if(!findWriteForm.lptime1.value){
-		alert("실종(발견) 날짜를 확인해주세요.");
-		return;
-	}
-	
-	if(!findWriteForm.lptime2.value){
-		alert("실종(발견) 시간을 확인해주세요.");
-		return;
-	}
-	
-	if(!findWriteForm.lpbreed.value){
+
+	if(!findWriteForm.lpspecies.value){
 		alert("실종 동물 종을 확인해주세요.");
-		return;
+		return false;
 	}
 	
 	if(findWriteForm.lpgender.value == 'none'){
 		alert("실종 동물 성별을 확인해주세요.");
-		return;
+		return false;
 	}
 	
+		if(findWriteForm.lpage.value == 'none'){
+		alert("실종 동물 나이 확인해주세요.");
+		return false;
+	}
+
+		if(!findWriteForm.lpcolor.value){
+		alert("실종 동물 색상을 확인해주세요.");
+		return false;
+	}
+	
+
 		if(!findWriteForm.lpcontent.value){
 		alert("실종 동물 상세정보를 확인해주세요.");
-		return;
+		return false;
 	}
 	
-	findWriteForm.submit();
+	else return true;
 }
   
   
@@ -190,13 +189,4 @@ function cancelFile(fileName){
 	$("img#" + fileName + "Img").attr("src", "images/filePlus.png");
 }
 
-         	
-function timeInput(){
-	const date = document.querySelector("#currentDate").value;
-	console.log(date);
-	}
-    
-document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);
-document.getElementById('currentTime').value = new Date().toISOString().slice(11, 16); 
-
-console.log("야",document.getElementById('currentDate').value);
+   

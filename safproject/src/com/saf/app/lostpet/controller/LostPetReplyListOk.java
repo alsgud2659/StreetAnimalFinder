@@ -33,11 +33,11 @@ public class LostPetReplyListOk implements Action {
 
 		for(LostPetReplyDTO r : replyList) {
 			JSONObject reply = new JSONObject();
-			reply.put("replyNumber", r.getReplyNumber());
-			reply.put("boardNumber", r.getLostpetNumber());
-			reply.put("memberNumber", r.getUserNumber());
-			reply.put("memberId", r.getUserId());
-			reply.put("replyContent", r.getReplyContent());
+			reply.put("replyNumber", r.getRnumber());
+			reply.put("boardNumber", r.getLpnumber());
+			reply.put("memberNumber", r.getUnum());
+//			reply.put("memberId", r.getUid());
+			reply.put("replyContent", r.getRcontent());
 			replies.add(reply);
 		}
 		

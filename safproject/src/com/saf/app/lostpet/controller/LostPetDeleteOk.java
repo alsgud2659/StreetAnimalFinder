@@ -37,7 +37,7 @@ public class LostPetDeleteOk implements Action{
 		}
 		
 		af.setRedirect(true);
-		af.setPath(req.getContextPath() + "/board/BoardListOk.bo");
+		af.setPath(req.getContextPath() + "/lostpet/controller/LostPetListOk.lo");
 		
 		return af;
 	}

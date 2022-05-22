@@ -9,6 +9,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/lostpet/LostPet.css"
 	type="text/css">
+
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 
 </head>
@@ -16,10 +17,15 @@
 <jsp:include page="/header/header.jsp" />
 <body class="lostpet">
 
-	<c:set var="lostpet" value="${lostpet}" />
-	<c:set var="files" value="${files}" />
-	
+	<c:set var="list" value="${lostpetList}" />
+
 	<div id="headers"></div>
+	<script>
+/* 	window.onload = function() {
+		const arr = [[],[]];
+		};
+ */
+	</script>
 	<div
 		class="dzsparallaxer auto-init height-is-based-on-content use-loading mode-scroll loaded dzsprx-readyall g-bg-cover"
 		data-options="{direction: &quot;reverse&quot;, animation_duration: 25, direction: &quot;reverse&quot;}">
@@ -45,7 +51,7 @@
 					<div class="col-4">
 						<!-- GA 클래스 추가 -->
 						<a
-							href="${pageContext.request.contextPath}/lostpet/find_write.jsp"
+							href="${pageContext.request.contextPath}/lostpet/controller/LostPetWrite.lo"
 							class="btn btn-md btn-block btn-primary g-color-white g-mr-10 g-mb-15 g-brd-0 adopt_application_event">
 							내 동물 찾기 <i class="material-icons g-font-size-16">글쓰기</i>
 						</a>
@@ -60,288 +66,98 @@
 	<div class="container space-1">
 
 		<div class="row">
-			<div class="col-sm-6 col-md-3 mb-7">
-				<div class="card border-0 shadow-soft h-100">
-					<a
-						href="${pageContext.request.contextPath}/lostpet/LostPet_detail.jsp">
-						<div id="img1" class="card-img-top" name="img"
-							style="width: 100%; height: 220px;">
-							<img src="C:\aigb_0900_ksy\1team_image\제목 없는 그림.png">
-						</div>
-					</a>
-					<div class="card-body p-3">
-						<h2 class="h5 font-weight-bold">
-							<a
-								href="${pageContext.request.contextPath}/lostpet/LostPet_detail.jsp">역삼동
-								/ 개(비글)</a>
-						</h2>
-						<p class="text-secondary mb-0">
-							개(비글)<br> 수컷 추정(중성화 O)<br> 나이 모름 <br> 몸무게 모름 / 브라운
-						</p>
-					</div>
-
-				</div>
-			</div>
-
-			<div class="col-sm-6 col-md-3 mb-7">
-				<div class="card border-0 shadow-soft h-100">
-					<a
-						href="${pageContext.request.contextPath}/lostpet/LostPet_detail.jsp">
-						<div id="img2" class="card-img-top" name="img"
-							style="width: 100%; height: 220px;"></div>
-					</a>
-					<div class="card-body p-3">
-						<h2 class="h5 font-weight-bold">
-							<a
-								href="${pageContext.request.contextPath}/lostpet/LostPet_detail.jsp">역삼동
-								/ 개(비글)</a>
-						</h2>
-						<p class="text-secondary mb-0">
-							개(비글)<br> 수컷 추정(중성화 O)<br> 나이 모름 <br> 몸무게 모름 / 브라운
-						</p>
-					</div>
-
-				</div>
-			</div>
 
 
-			<div class="col-sm-6 col-md-3 mb-7">
-				<div class="card border-0 shadow-soft h-100">
-					<a
-						href="${pageContext.request.contextPath}/lostpet/LostPet_detail.jsp">
-						<div id="img3" class="card-img-top" name="img"
-							style="width: 100%; height: 220px;"></div>
-					</a>
-					<div class="card-body p-3">
-						<h2 class="h5 font-weight-bold">
-							<a
-								href="${pageContext.request.contextPath}/lostpet/LostPet_detail.jsp">역삼동
-								/ 개(비글)</a>
-						</h2>
-						<p class="text-secondary mb-0">
-							개(비글)<br> 수컷 추정(중성화 O)<br> 나이 모름 <br> 몸무게 모름 / 브라운
-						</p>
-					</div>
+<c:forEach var="lostpet" items="${lostpetList}">
+            <div class="col-sm-6 col-md-3 mb-7">
+                <div class="card border-0 shadow-soft h-100">
+                   <a href="${pageContext.request.contextPath}/lostpet/controller/LostPetDetailOk.lo?lpnumber=${lostpet.getLpnumber()}">
+                        <div id="img${lostpet.getLpnumber()}" class="image-box card-img-top" name="img" style="width:100%;height:220px;">
+                        </div>
+                    </a>
+                    <div class="card-body p-3">
+                        <h2 class="h5 font-weight-bold">
+                        <a href="${pageContext.request.contextPath}/lostpet/controller/LostPetDetailOk.lo?lpnumber=${lostpet.getLpnumber()}">
+                       ${lostpet.getLpspecies()} / ${lostpet.getLparea2()} 
+                       <span style="color: #019267 !important; font-size:1rem !important;">
+                        <script>
+      if ( '<c:out value="${lostpet.getLpstatus()}"/>' == '1' ) {
+        document.write ( '찾아요' );
+      } else if ( '<c:out value="${lostpet.getLpstatus()}"/>' == '2' ) {
+        document.write ( '봤어요' );
+      } </script>
+      </span>
+                        </a></h2>
+                                                
+                        <p class="text-secondary mb-0">
+                           ${lostpet.getLpspecies()}(${lostpet.getLpbreed()})<br>
+                           ${lostpet.getLpgender()} 추정<br>
+					       ${lostpet.getLpage()} <br>
+					       ${lostpet.getLpcolor()}<br>
+                        </p>
 
-				</div>
-			</div>
+                    </div>
 
-			<div class="col-sm-6 col-md-3 mb-7">
-				<div class="card border-0 shadow-soft h-100">
-					<a
-						href="${pageContext.request.contextPath}/lostpet/LostPet_detail.jsp">
-						<div id="img4" class="card-img-top" name="img"
-							style="width: 100%; height: 220px;"></div>
-					</a>
-					<div class="card-body p-3">
-						<h2 class="h5 font-weight-bold">
-							<a
-								href="${pageContext.request.contextPath}/lostpet/LostPet_detail.jsp">역삼동
-								/ 개(비글)</a>
-						</h2>
-						<p class="text-secondary mb-0">
-							개(비글)<br> 수컷 추정(중성화 O)<br> 나이 모름 <br> 몸무게 모름 / 브라운
-						</p>
-					</div>
+                </div>
+            </div>
+            
+            <script>
+/*             arr[Number('<c:out value="${lostpet.getLpnumber()}"/>')][1] = '<c:out value="${lostpet.getLparea1()}"/>';
+            console.log("넘버 테스트", arr); */
 
-				</div>
-			</div>
+            </script>
 
-			<div class="col-sm-6 col-md-3 mb-7">
-				<div class="card border-0 shadow-soft h-100">
-					<a
-						href="${pageContext.request.contextPath}/lostpet/LostPet_detail.jsp">
-						<div id="img5" class="card-img-top" name="img"
-							style="width: 100%; height: 220px;"></div>
-					</a>
-					<div class="card-body p-3">
-						<h2 class="h5 font-weight-bold">
-							<a
-								href="${pageContext.request.contextPath}/lostpet/LostPet_detail.jsp">역삼동
-								/ 개(비글)</a>
-						</h2>
-						<p class="text-secondary mb-0">
-							개(비글)<br> 수컷 추정(중성화 O)<br> 나이 모름 <br> 몸무게 모름 / 브라운
-						</p>
-					</div>
 
-				</div>
-			</div>
-
-			<div class="col-sm-6 col-md-3 mb-7">
-				<div class="card border-0 shadow-soft h-100">
-					<a
-						href="${pageContext.request.contextPath}/lostpet/LostPet_detail.jsp">
-						<div id="img6" class="card-img-top" name="img"
-							style="width: 100%; height: 220px;"></div>
-					</a>
-					<div class="card-body p-3">
-						<h2 class="h5 font-weight-bold">
-							<a
-								href="${pageContext.request.contextPath}/lostpet/LostPet_detail.jsp">역삼동
-								/ 개(비글)</a>
-						</h2>
-						<p class="text-secondary mb-0">
-							개(비글)<br> 수컷 추정(중성화 O)<br> 나이 모름 <br> 몸무게 모름 / 브라운
-						</p>
-					</div>
-
-				</div>
-			</div>
-
-			<div class="col-sm-6 col-md-3 mb-7">
-				<div class="card border-0 shadow-soft h-100">
-					<a
-						href="${pageContext.request.contextPath}/lostpet/LostPet_detail.jsp">
-						<div id="img7" class="card-img-top" name="img"
-							style="width: 100%; height: 220px;"></div>
-					</a>
-					<div class="card-body p-3">
-						<h2 class="h5 font-weight-bold">
-							<a
-								href="${pageContext.request.contextPath}/lostpet/LostPet_detail.jsp">역삼동
-								/ 개(비글)</a>
-						</h2>
-						<p class="text-secondary mb-0">
-							개(비글)<br> 수컷 추정(중성화 O)<br> 나이 모름 <br> 몸무게 모름 / 브라운
-						</p>
-					</div>
-
-				</div>
-			</div>
-
-			<div class="col-sm-6 col-md-3 mb-7">
-				<div class="card border-0 shadow-soft h-100">
-					<a
-						href="${pageContext.request.contextPath}/lostpet/LostPet_detail.jsp">
-						<div id="img8" class="card-img-top" name="img"
-							style="width: 100%; height: 220px;"></div>
-					</a>
-					<div class="card-body p-3">
-						<h2 class="h5 font-weight-bold">
-							<a
-								href="${pageContext.request.contextPath}/lostpet/LostPet_detail.jsp">역삼동
-								/ 개(비글)</a>
-						</h2>
-						<p class="text-secondary mb-0">
-							개(비글)<br> 수컷 추정(중성화 O)<br> 나이 모름 <br> 몸무게 모름 / 브라운
-						</p>
-					</div>
-
-				</div>
-			</div>
-
-			<div class="col-sm-6 col-md-3 mb-7">
-				<div class="card border-0 shadow-soft h-100">
-					<a
-						href="${pageContext.request.contextPath}/lostpet/LostPet_detail.jsp">
-						<div id="img9" class="card-img-top" name="img"
-							style="width: 100%; height: 220px;"></div>
-					</a>
-					<div class="card-body p-3">
-						<h2 class="h5 font-weight-bold">
-							<a
-								href="${pageContext.request.contextPath}/lostpet/LostPet_detail.jsp">역삼동
-								/ 개(비글)</a>
-						</h2>
-						<p class="text-secondary mb-0">
-							개(비글)<br> 수컷 추정(중성화 O)<br> 나이 모름 <br> 몸무게 모름 / 브라운
-						</p>
-					</div>
-
-				</div>
-			</div>
-
-			<div class="col-sm-6 col-md-3 mb-7">
-				<div class="card border-0 shadow-soft h-100">
-					<a
-						href="${pageContext.request.contextPath}/lostpet/LostPet_detail.jsp">
-						<div id="img10" class="card-img-top" name="img"
-							style="width: 100%; height: 220px;"></div>
-					</a>
-					<div class="card-body p-3">
-						<h2 class="h5 font-weight-bold">
-							<a
-								href="${pageContext.request.contextPath}/lostpet/LostPet_detail.jsp">역삼동
-								/ 개(비글)</a>
-						</h2>
-						<p class="text-secondary mb-0">
-							개(비글)<br> 수컷 추정(중성화 O)<br> 나이 모름 <br> 몸무게 모름 / 브라운
-						</p>
-					</div>
-
-				</div>
-			</div>
-
-			<div class="col-sm-6 col-md-3 mb-7">
-				<div class="card border-0 shadow-soft h-100">
-					<a
-						href="${pageContext.request.contextPath}/lostpet/LostPet_detail.jsp">
-						<div id="img11" class="card-img-top" name="img"
-							style="width: 100%; height: 220px;"></div>
-					</a>
-					<div class="card-body p-3">
-						<h2 class="h5 font-weight-bold">
-							<a
-								href="${pageContext.request.contextPath}/lostpet/LostPet_detail.jsp">역삼동
-								/ 개(비글)</a>
-						</h2>
-						<p class="text-secondary mb-0">
-							개(비글)<br> 수컷 추정(중성화 O)<br> 나이 모름 <br> 몸무게 모름 / 브라운
-						</p>
-					</div>
-
-				</div>
-			</div>
-
-			<div class="col-sm-6 col-md-3 mb-7">
-				<div class="card border-0 shadow-soft h-100">
-					<a
-						href="${pageContext.request.contextPath}/lostpet/LostPet_detail.jsp">
-						<div id="img12" class="card-img-top" name="img"
-							style="width: 100%; height: 220px;"></div>
-					</a>
-					<div class="card-body p-3">
-						<h2 class="h5 font-weight-bold">
-							<a
-								href="${pageContext.request.contextPath}/lostpet/LostPet_detail.jsp">역삼동
-								/ 개(비글)</a>
-						</h2>
-						<p class="text-secondary mb-0">
-							개(비글)<br> 수컷 추정(중성화 O)<br> 나이 모름 <br> 몸무게 모름 / 브라운
-						</p>
-					</div>
-
-				</div>
-			</div>
-
+            </c:forEach>
 		</div>
 	</div>
+	
+	
 
 
 	<div id="footer"></div>
 	<jsp:include page="/footer/footer.jsp" />
 
-</body>
-<script type="text/javascript"
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=	62d4bc6d2093029dccfeeaaea8e0f9e8"></script>
+
+
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6cf3e9ffc133b6ee746032c7a1b992c7&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6cf3e9ffc133b6ee746032c7a1b992c7"></script>
 <script>
-	for (var i = 1; i < document.getElementsByName('img').length + 1; i++) {
-		var img = 'img' + i;
-		var mapContainer = document.getElementById(img), // 지도를 표시할 div 
-		mapOption = {
-			center : new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-			draggable : false,
-			level : 3
-		// 지도의 확대 레벨
-		};
+var li_num = new Array();
+var li_area = new Array();
+<c:forEach var="lostpet" items="${lostpetList}">
+li_num.push(Number('<c:out value="${lostpet.getLpnumber()}"/>'));
+li_area.push('<c:out value="${lostpet.getLparea1()}"/>');
+</c:forEach>
+console.log("li_num",li_num);
+console.log("li_area",li_area);
+/* 카카오맵 */
 
-		// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-		var map = new kakao.maps.Map(mapContainer, mapOption);
+for (var i = 0 ; i < li_num.length ; i++) {
+	var index = 'img'+li_num[i];
+	console.log("index는 ",li_num[i]," ", index);
+var mapContainer = document.getElementById(index), // 지도를 표시할 div 
+mapOption = {
+	center : new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+	draggable : false,
+	level : 3
+// 지도의 확대 레벨
+};
 
-		// 지도에 표시할 원을 생성합니다
-		var circle = new kakao.maps.Circle({
-			center : new kakao.maps.LatLng(33.450701, 126.570667), // 원의 중심좌표 입니다 
+//지도를 생성합니다   
+var map = new kakao.maps.Map(mapContainer, mapOption);
+// 주소-좌표 변환 객체를 생성합니다
+var geocoder = new kakao.maps.services.Geocoder();
+
+// 주소로 좌표를 검색합니다
+	 console.log("주소는 ", li_area[i]);
+geocoder.addressSearch(li_area[i], function(result, status) {
+    // 정상적으로 검색이 완료됐으면 
+     if (status === kakao.maps.services.Status.OK) {
+        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+        var circle = new kakao.maps.Circle({
+			center : coords, // 원의 중심좌표 입니다 
 			radius : 100, // 미터 단위의 원의 반지름입니다 
 			strokeWeight : 5, // 선의 두께입니다 
 			strokeColor : '#75B8FA', // 선의 색깔입니다
@@ -351,11 +167,19 @@
 			fillOpacity : 0.7
 		// 채우기 불투명도 입니다   
 		});
-
-		// 지도에 원을 표시합니다 
+		
 		circle.setMap(map);
-
-	}
+        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+        map.setCenter(coords);
+    } 
+}); 
+}
 </script>
+
+
+
+</body>
+
+
 
 </html>

@@ -53,12 +53,12 @@ public class FilesDAO {
 	
 	//첨부파일 삭제
 	public void delete(int lpnumber) {
-		sqlSession.delete("Files.imgdelete", lpnumber);
+		sqlSession.delete("Lostpet.imgdelete", lpnumber);
 	}
 	
 	//첨부파일 가져오기
 	public List<LostPetFilesVO> select(int lpnumber){
-		return sqlSession.selectList("Files.imgselect", lpnumber);
+		return sqlSession.selectList("Lostpet.FileDelect", lpnumber);
 	}
 	
 }

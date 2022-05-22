@@ -16,16 +16,16 @@ public class LostPetWrite implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		
-		HttpSession session = req.getSession();
-		UserDAO uDao = new UserDAO();
+//D		HttpSession session = req.getSession();
+//		LostPetDAO uDao = new LostPetDAO();
 		ActionForward af = new ActionForward();
 		
-		String userId = uDao.getInfo((Integer)session.getAttribute("unum")).getUid();
+//		String userId = uDao.getUserInfo(session.getAttribute("unum")).getUid();
 		
-		req.setAttribute("uid", userId);
-		
-		af.setRedirect(false);
-		af.setPath("/lostpet/fine_write.jsp");
+//		req.setAttribute("uid", userId);
+//		
+ 		af.setRedirect(false);
+ 		af.setPath("/lostpet/find_write.jsp");
 		
 		return af;
 	}

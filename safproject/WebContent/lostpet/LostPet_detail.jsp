@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
 
@@ -9,17 +11,50 @@
 </head>
 
 <body>
+
+
   <jsp:include page="/header/header.jsp"/>
+ 
+<div class="join_container_fluid pa00" style="    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+        height: 30px;
+    background: #05a4e8;
+    margin-bottom: 20px;
+        background-color: #019267 !important;">
+            <div>
+                <div id="ctl00_topimage" style="/* height:262px; */">
+                    <div id="ctl00_topimagediv" class="topimagediv">
+                        
+                    </div>
+
+                </div>
+            </div>
+            <div class="join_container_fluid nm_h_underline smbc" id="join_nm_h_underline">
+            </div>
+        </div>
+   		<c:set var="lostpet" value="${lostpet}"/>
+   		<c:set var="files" value="${files}"/>
     <div class="bg-light space-1">
         <div class="container g-mt-30 py-1 ">
             <div class="shadow-sm p-0">
-                <h2 id="breadcrumb-title" class="h2 g-font-size-28 font-weight-bold g-line-height-1">보호동물 정보</h2>
+                <h2 id="breadcrumb-title" class="h2 g-font-size-28 font-weight-bold g-line-height-1">실종동물 
+                                            <span style="color: #019267 !important;">
+                        <script>
+      if ( '<c:out value="${lostpet.getLpstatus()}"/>' == '1' ) {
+        document.write ( '찾아요' );
+      } else if ( '<c:out value="${lostpet.getLpstatus()}"/>' == '2' ) {
+        document.write ( '봤어요' );
+      } </script>
+      </span>
+</h2>
 
                 <div class="row te py-1">
 
                     <div class="col-lg-6">
-                        <div class="js-slide g-bg-cover g-bg-black-opacity-0_1--after slick-slide"
-                            style="height: 500px; width:100%;" id="img">
+                        <div  id="img" class="js-slide g-bg-cover g-bg-black-opacity-0_1--after slick-slide"
+                            style="height: 500px; width:100%;">
                             <!-- <img class="img-fluid w-100" src="/file/getBlob/23490.png" alt="Image Description"> -->
                         </div>
 
@@ -33,9 +68,11 @@
 
                         <h1 class="h3 g-color-primary font-weight-bold mt-4">
                             <!-- GA 클래스 추가 -->
-                            <span class="animal_name">역삼동 / 개 (비글)</span>
-                            <span
-                                class="g-color-gray-dark-v5 g-font-weight-400 g-font-size-12 text-uppercase">D2015122001</span>
+                            <span class="animal_name">${lostpet.getLparea2()} / ${lostpet.getLpspecies()} (${lostpet.getLpbreed()})</span>
+<br>
+
+                    
+
                         </h1>
 
                         <hr class="my-5">
@@ -46,7 +83,7 @@
                                     <small class="text-muted"> 종/품종 </small>
                                 </div>
                                 <div class="media-body">
-                                    <h3 class="h6">개 / 진도</h3>
+                                    <h3 class="h6"> ${lostpet.getLpspecies()} / ${lostpet.getLpbreed()}</h3>
                                 </div>
                             </li>
                             <li class="media mb-1">
@@ -54,7 +91,7 @@
                                     <small class="text-muted"> 성별(중성화) </small>
                                 </div>
                                 <div class="media-body">
-                                    <h3 class="h6">암컷 / 중성화 O</h3>
+                                    <h3 class="h6">${lostpet.getLpgender()}</h3>
                                 </div>
                             </li>
                             <li class="media mb-1">
@@ -65,7 +102,7 @@
 
 
                                     <h3 class="h6">
-                                        모름
+                                        ${lostpet.getLpage()}
                                     </h3>
                                 </div>
                             </li>
@@ -82,7 +119,7 @@
                                     <small class="text-muted"> 털색 </small>
                                 </div>
                                 <div class="media-body">
-                                    <h3 class="h6">브라운</h3>
+                                    <h3 class="h6">${lostpet.getLpcolor()}</h3>
                                 </div>
                             </li>
                             <li class="media mb-0">
@@ -90,7 +127,7 @@
                                     <small class="text-muted"> 발견 장소 </small>
                                 </div>
                                 <div class="media-body">
-                                    <h3 class="h6 mb-0">역삼역 2번 출구 앞</h3>
+                                    <h3 class="h6 mb-0">${lostpet.getLparea3()}</h3>
                                 </div>
                             </li>
 
@@ -106,7 +143,11 @@
                             <button class="btn btn-block btn-primary openBtn" type="button">주인 /
                                 발견
                                 신고하기</button>
-
+                    <ul class="list-inline mb-0 f-0" style="justify-content: space-around !important;">
+                        <li class="list-inline-item float-left">
+                            <a href="${pageContext.request.contextPath}/lostpet/controller/LostPetDeleteOk.lo?lpnumber=${lostpet.getLpnumber()}" aria-label="목록">찾았어요</a>
+                        </li>
+                    </ul>
                         </div>
 
                     </div>
@@ -118,11 +159,22 @@
                 <h2 class="h5 text-dark font-weight-bold mb-3">설명</h2>
                 <div class="row shadow-sm">
                     <div class="content te p-0">
-                        <img class="img" src="/teamproject/WebContent/file/getBlob/23490.png"
+                     <!-- 첨부파일 목록 -->
+                           <c:choose>
+                           	<c:when test="${files != null and fn:length(files) > 0}">
+	                           <c:forEach var="file" items="${files}">
+	                           <img class="img" src="${pageContext.request.contextPath}/lostpet/animal_image/${file.getFileName()}"
                             style="height: 350px; width: 350px;">
-                        <br>역삼역 2번 출구에서 사람 얼굴을 확인하고 다니고 있는 것을 보호했습니다. <br>
-                        사람을 좋아해서 안 가리고 꼬리를 흔들던데... 목걸이도 하고 있는 걸 보니 주인이 계신것 같아서요
-                        <br> 한번 올려봅니다.
+		                           
+		                           </a>
+		                           <br>
+	                           </c:forEach>
+	                       	</c:when>
+	                       	<c:otherwise>
+	                       	</c:otherwise>
+                           </c:choose>
+                        <hr />
+                       ${lostpet.getLpcontent()} 
                     </div>
 
                 </div>
@@ -131,49 +183,16 @@
 
             <div class="container te">
                 <nav class="text-center " aria-label="Page Navigation">
-                    <ul class="list-inline mb-0 f-0">
+                    <ul class="list-inline mb-0 f-0" style="justify-content: space-around !important;">
                         <li class="list-inline-item float-left">
-                            <a class="primary--hover shadow-sm" href="" aria-label="이전글">이전글</a>
-                        </li>
-                        <li class="list-inline-item float-left">
-                            <a class="primary--hover shadow-sm" href="LostPet.html" aria-label="목록">목록</a>
-                        </li>
-                        <li class="list-inline-item float-left">
-                            <a class="primary--hover shadow-sm" href="" aria-label="다음글">다음글</a>
+                            <a href="${pageContext.request.contextPath}/lostpet/controller/LostPetListOk.lo" aria-label="목록">목록</a>
                         </li>
                     </ul>
                 </nav>
 
             </div>
 
-            <div class="container te shadow-sm line-border">
-                <div class="container te mb-5">
-                    <div class="mb-0">
-                        <hr class="my-5">
-                        <h3 class="h6 ">
-                            댓글 1
-                        </h3>
-                        <hr class="my-4">
-                    </div>
-                    <div id="comment" class="media g-mb-30">
-                        <div class="media-body">
-                            <div class="d-flex">
-                                <div class="d-block">
-                                    <h5 class="h6 g-color-black g-font-weight-600">
-                                        김나라
-                                        <span class="g-color-gray-dark-v5 g-font-size-12 g-font-weight-400">
-                                            2022-05-15 19:20
-                                        </span>
-                                    </h5>
-                                </div>
-                            </div>
-                            <p>
-                                앗 저 지나가다가 본거 같아요!!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
 
 
         </div>
@@ -207,38 +226,48 @@
       <jsp:include page="/footer/footer.jsp"/>
     
 </body>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=	62d4bc6d2093029dccfeeaaea8e0f9e8"></script>
+            <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6cf3e9ffc133b6ee746032c7a1b992c7&libraries=services"></script>
+	            <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6cf3e9ffc133b6ee746032c7a1b992c7"></script>
 <script>
+console.log('<c:out value="${lostpet.getLparea1()}"/>');
+var mapContainer = document.getElementById('img'), // 지도를 표시할 div 
+mapOption = {
+	center : new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+	draggable : false,
+	level : 3
+// 지도의 확대 레벨
+};
+
+var map = new kakao.maps.Map(mapContainer, mapOption);
+// 주소-좌표 변환 객체를 생성합니다
+var geocoder = new kakao.maps.services.Geocoder();
+// 주소로 좌표를 검색합니다
+geocoder.addressSearch('<c:out value="${lostpet.getLparea1()}"/>', function(result, status) {
+    // 정상적으로 검색이 완료됐으면 
+     if (status === kakao.maps.services.Status.OK) {
+        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+        var circle = new kakao.maps.Circle({
+			center : coords, // 원의 중심좌표 입니다 
+			radius : 100, // 미터 단위의 원의 반지름입니다 
+			strokeWeight : 5, // 선의 두께입니다 
+			strokeColor : '#75B8FA', // 선의 색깔입니다
+			strokeOpacity : 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+			strokeStyle : 'dashed', // 선의 스타일 입니다
+			fillColor : '#CFE7FF', // 채우기 색깔입니다
+			fillOpacity : 0.7
+		// 채우기 불투명도 입니다   
+		});
+		
+		circle.setMap(map);
+        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+        map.setCenter(coords);
+    } 
+}); 
 
 
-
-    var mapContainer = document.getElementById('img'), // 지도를 표시할 div 
-        mapOption = {
-            center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-            level: 3 // 지도의 확대 레벨
-        };
-
-    // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-    var map = new kakao.maps.Map(mapContainer, mapOption);
-
-
-    // 지도에 표시할 원을 생성합니다
-    var circle = new kakao.maps.Circle({
-        center: new kakao.maps.LatLng(33.450701, 126.570667),  // 원의 중심좌표 입니다 
-        radius: 100, // 미터 단위의 원의 반지름입니다 
-        strokeWeight: 5, // 선의 두께입니다 
-        strokeColor: '#75B8FA', // 선의 색깔입니다
-        strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-        strokeStyle: 'dashed', // 선의 스타일 입니다
-        fillColor: '#CFE7FF', // 채우기 색깔입니다
-        fillOpacity: 0.7  // 채우기 불투명도 입니다   
-    });
-
-    // 지도에 원을 표시합니다 
-    circle.setMap(map);
 
     // 모달 
-    const open = () => {
+const open = () => {
         document.querySelector(".modal").classList.remove("hidden");
     }
 
@@ -249,6 +278,15 @@
     document.querySelector(".openBtn").addEventListener("click", open);
     document.querySelector(".closeBtn").addEventListener("click", close);
     document.querySelector(".bg").addEventListener("click", close);
+    
+    
+    function send(){	
+    		if(!findReplyWriteForm.reply.value){
+    			alert("댓글을 입력해주세요.");
+    			return false;
+    		}
+    		else return true;
+    	}
 </script>
 
 </html>

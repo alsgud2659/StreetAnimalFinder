@@ -76,7 +76,6 @@ body.lostpet {
 .col-11,
 .col-12,
 .col,
-.col-auto,
 .col-sm-1,
 .col-sm-2,
 .col-sm-3,
@@ -222,8 +221,7 @@ body {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #019267;
-    text-align: left;
+        text-align: left;
     background-color: #fff;
 }
 
@@ -490,7 +488,7 @@ p {
 .f-0 {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: space-around
     list-style: none;
     padding: 0.5rem 1.14286rem !important;
 }
@@ -790,7 +788,7 @@ element.style {
 
 ::selection {
     color: #fff;
-    background-color: #004ba0;
+    background-color: #019267;
 }
 
 .divimage {

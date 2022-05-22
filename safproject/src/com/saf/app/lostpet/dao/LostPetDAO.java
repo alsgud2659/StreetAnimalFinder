@@ -21,7 +21,7 @@ public class LostPetDAO {
 	}
 
 	//실종동물 목록
-	public List<LostPetDTO> selectAll(Map<String, Integer> lostpetMap) {
+	public List<LostPetVO> selectAll(Map<String, Integer> lostpetMap) {
 		return sqlSession.selectList("Lostpet.selectAll", lostpetMap);
 	}
 	
@@ -37,6 +37,7 @@ public class LostPetDAO {
 	
 	//실종동물 정보 조회
 	public LostPetDTO selectDetail(int lpnumber) {
+		System.out.println("디테일");
 		return sqlSession.selectOne("Lostpet.selectDetail", lpnumber);
 	}
 	
@@ -57,8 +58,8 @@ public class LostPetDAO {
 	}
 	
 	//실종동물 수정
-	public void update(LostPetVO board) {
-		sqlSession.update("Lostpet.update", board);
+	public void update(LostPetVO lostpet) {
+		sqlSession.update("Lostpet.update", lostpet);
 	}
 	
 	//최근 실종동물 번호
