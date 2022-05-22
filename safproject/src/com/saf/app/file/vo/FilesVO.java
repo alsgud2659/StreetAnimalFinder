@@ -1,4 +1,4 @@
-package com.saf.app.board.vo;
+package com.saf.app.file.vo;
 
 public class FilesVO {
 	private String fname;
