@@ -19,11 +19,11 @@ public class LostPetUpdateOk implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		
-		LostPetVO lostpet = new LostPetVO();
+		System.out.println("컨트롤러");
 		LostPetDAO lpDao = new LostPetDAO();
-		List<LostPetFilesVO> files = null;
 		FilesDAO fDao = new FilesDAO();
+		LostPetVO lostpet = new LostPetVO();
+		List<LostPetFilesVO> files = null;
 		ActionForward af = new ActionForward();
 		
 		String uploadFolder = "C:\\aigb_0900_ksy\\1team_imag";
@@ -33,18 +33,19 @@ public class LostPetUpdateOk implements Action {
 		//파일을 form으로 전달할 때 MultipartRequest로 받는다.
 		MultipartRequest multi = new MultipartRequest(req, uploadFolder, fileSize, "UTF-8", new DefaultFileRenamePolicy());
 		
-		page = Integer.parseInt(multi.getParameter("page"));
+	//	page = Integer.parseInt(multi.getParameter("page"));
 		lpnumber = Integer.parseInt(multi.getParameter("lpnumber"));
 		lostpet.setLparea1(multi.getParameter("lparea1"));
 		lostpet.setLparea2(multi.getParameter("lparea2"));
-		lostpet.setLparea3(multi.getParameter("lparea2"));
+		lostpet.setLparea3(multi.getParameter("lparea3"));
 		lostpet.setLpspecies(multi.getParameter("lpspecies"));
-		lostpet.setLparea1(multi.getParameter("lpgender"));
-		lostpet.setLparea1(multi.getParameter("lpcolor"));
-		lostpet.setLparea1(multi.getParameter("lpbreed"));
-		lostpet.setLparea1(multi.getParameter("lpimage"));
-		lostpet.setLparea1(multi.getParameter("lpcontent"));
-		lostpet.setLpnumber(lpnumber);
+		lostpet.setLpbreed(multi.getParameter("lpbreed"));
+		lostpet.setLpgender(multi.getParameter("lpgender"));
+		lostpet.setLpage(multi.getParameter("lpage"));
+		lostpet.setLpcolor(multi.getParameter("lpcolor"));
+		lostpet.setLptime(multi.getParameter("lptime"));
+		lostpet.setLpcontent(multi.getParameter("lpcontent"));
+		lostpet.setUnum(1);
 		
 		files = fDao.select(lpnumber);
 		
@@ -71,7 +72,7 @@ public class LostPetUpdateOk implements Action {
 //		af.setPath(req.getContextPath() + "/board/BoardListOk.bo");
 		
 		//목록보기(페이지 기억)
-		af.setPath(req.getContextPath() + "/lostpet/LostPetListOk.bo?page=" + page);
+		af.setPath(req.getContextPath() + "/lostpet/LostPetListOk.lo");
 		
 		return af;
 	}

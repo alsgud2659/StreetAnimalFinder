@@ -1,22 +1,23 @@
 package com.saf.app.lostpet.vo;
 
 public class LostPetVO {
+	public static void main(String[] args) {
+		System.out.println("vo도착");
+	}
 	private int lpnumber;
 	private String lparea1;
 	private String lparea2;
 	private String lparea3;
 	private String lpspecies;
 	private String lpgender;
+	private String lpage;
 	private String lpcolor;
 	private String lpbreed;
-	private String lpimage;
 	private int lpstatus;
 	private String lptime;
 	private String lpcontent;
 	private int unum;
-	public static void main(String[] args) {
-		System.out.println("vo도착");
-	}
+
 	public int getLpnumber() {
 		return lpnumber;
 	}
@@ -53,6 +54,12 @@ public class LostPetVO {
 	public void setLpgender(String lpgender) {
 		this.lpgender = lpgender;
 	}
+	public String getLpage() {
+		return lpage;
+	}
+	public void setLpage(String lpage) {
+		this.lpage= lpage;
+	}
 	public String getLpcolor() {
 		return lpcolor;
 	}
@@ -64,12 +71,6 @@ public class LostPetVO {
 	}
 	public void setLpbreed(String lpbreed) {
 		this.lpbreed = lpbreed;
-	}
-	public String getLpimage() {
-		return lpimage;
-	}
-	public void setLpimage(String lpimage) {
-		this.lpimage = lpimage;
 	}
 	public int getLpstatus() {
 		return lpstatus;
@@ -102,7 +103,7 @@ public class LostPetVO {
 	}
 	
 	public LostPetVO(int lpnumber, String lparea1, String lparea2, String lparea3, String lpspecies, String lpgender,
-			String lpcolor, String lpbreed, String lpimage, int lpstatus, String lptime, String lpcontent, int unum) {
+			String lpage, String lpcolor, String lpbreed, String lpimage, int lpstatus, String lptime, String lpcontent, int unum) {
 		super();
 		this.lpnumber = lpnumber;
 		this.lparea1 = lparea1;
@@ -110,9 +111,9 @@ public class LostPetVO {
 		this.lparea3 = lparea3;
 		this.lpspecies = lpspecies;
 		this.lpgender = lpgender;
+		this.lpage = lpage;
 		this.lpcolor = lpcolor;
 		this.lpbreed = lpbreed;
-		this.lpimage = lpimage;
 		this.lpstatus = lpstatus;
 		this.lptime = lptime;
 		this.lpcontent = lpcontent;

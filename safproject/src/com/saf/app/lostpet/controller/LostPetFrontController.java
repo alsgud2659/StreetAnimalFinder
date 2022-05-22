@@ -1,5 +1,6 @@
 package com.saf.app.lostpet.controller;
 import static java.lang.System.out;
+
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -28,50 +29,41 @@ public class LostPetFrontController extends HttpServlet {
 		ActionForward af = null;
 		
 		if(command.equals("/lostpet/controller/LostPetListOk.lo")) {
-			System.out.println("프론트컨트롤러 도착");
 			af = new LostPetListOk().execute(req, resp); 
 			
 		}else if(command.equals("/lostpet/controller/LostPetDetailOk.lo")) {
-			System.out.println("프론트컨트롤러 도착");
 			af = new LostPetDetailOk().execute(req, resp);
 			
 		}else if(command.equals("/lostpet/controller/LostPetDeleteOk.lo")) {
-			System.out.println("프론트컨트롤러 도착");
 			af = new LostPetDeleteOk().execute(req, resp);
 			
 		}else if(command.equals("/lostpet/controller/LostPetReplyDeleteOk.lo")) {
-			System.out.println("프론트컨트롤러 도착");
 			af = new LostPetReplyDeleteOk().execute(req, resp);
 		
 		}else if(command.equals("/lostpet/controller/LostPetReplyListOk.lo")) {
-			System.out.println("프론트컨트롤러 도착");
 			af = new LostPetReplyListOk().execute(req, resp);
 			
 		}else if(command.equals("/lostpet/controller/LostPetReplyUpdateOk.lo")) {
-			System.out.println("프론트컨트롤러 도착");
 			af = new LostPetReplyUpdateOk().execute(req, resp);
 			
 		}else if(command.equals("/lostpet/controller/LostPetReplyWriteOk.lo")) {
-			System.out.println("프론트컨트롤러 도착");
 			af = new LostPetReplyWriteOk().execute(req, resp);
 			
 		}else if(command.equals("/lostpet/controller/LostPetUpdate.lo")) {
-			System.out.println("프론트컨트롤러 도착");
+			System.out.println("프컨");
 			af = new LostPetUpdate().execute(req, resp);
 			
 		}else if(command.equals("/lostpet/controller/LostPetUpdateOk.lo")) {
-			System.out.println("프론트컨트롤러 도착");
-			af = new LostPetDetailOk().execute(req, resp);
+			System.out.println("프컨");
+			af = new LostPetUpdateOk().execute(req, resp);
 			
 		}else if(command.equals("/lostpet/controller/LostPetWrite.lo")) {
-			System.out.println("프론트컨트롤러 도착");
 			af = new LostPetWrite().execute(req, resp);
 			
 		}else if(command.equals("/lostpet/controller/LostPetWriteOk.lo")) {
 			System.out.println("프론트컨트롤러 도착");
 			af = new LostPetWriteOk().execute(req, resp);
 		}else if(command.equals("/lostpet/controller/FileDownloadOk.lo")) {
-			System.out.println("프론트컨트롤러 도착");
 			af = new LostPetWriteOk().execute(req, resp);
 		}
 		

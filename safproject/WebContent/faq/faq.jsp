@@ -17,6 +17,29 @@
   <body class="faq">
 
     <main>
+    
+<div class="join_container_fluid pa00" style="    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+        height: 30px;
+    background: #05a4e8;
+    margin-bottom: 20px;
+        background-color: #019267 !important;">
+            <div>
+                <div id="ctl00_topimage" style="/* height:262px; */">
+                    <div id="ctl00_topimagediv" class="topimagediv">
+                        
+                    </div>
+
+                </div>
+            </div>
+            <div class="join_container_fluid nm_h_underline smbc" id="join_nm_h_underline">
+            </div>
+        </div>
+        
+    
+    </div>
       <div class="scroll-container">
         <!-- 목차 -->
         <div class="faq-container g-my-30">

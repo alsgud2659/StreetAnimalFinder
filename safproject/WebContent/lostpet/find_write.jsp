@@ -27,6 +27,30 @@
         <c:set var="unum" value="${unum}"/>
   <jsp:include page="/header/header.jsp"/>
     <main>
+    
+        
+<div class="join_container_fluid pa00" style="    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+        height: 30px;
+    background: #05a4e8;
+    margin-bottom: 20px;
+        background-color: #019267 !important;">
+            <div>
+                <div id="ctl00_topimage" style="/* height:262px; */">
+                    <div id="ctl00_topimagediv" class="topimagediv">
+                        
+                    </div>
+
+                </div>
+            </div>
+            <div class="join_container_fluid nm_h_underline smbc" id="join_nm_h_underline">
+            </div>
+        </div>
+        
+        
+        
       <section id="fine-write" class="wr-lay-1">
         <div class="container wr-lay-2">
           <h2 class="find-head">실종 동물 등록</h2>
@@ -34,7 +58,9 @@
       </section>
       <section class="container">
         <h3 class="wr-title-h3">글 쓰기</h3>
-        <form  method="post"  action="${pageContext.request.contextPath}/lostpet/controller/LostPetWriteOk.lo" name="findWriteForm" enctype="multipart/form-data">
+        <form  method="post" action="${pageContext.request.contextPath}/lostpet/controller/LostPetWriteOk.lo" 
+        onsubmit="return send()"
+        name="findWriteForm" enctype="multipart/form-data">
           <div class="form-group">
             <div class="find-q">
               <label class="wr-title" for="">말머리 선택</label>
@@ -52,7 +78,7 @@
               <label class="wr-title" for="">실종 지역</label>
               <div class="row">
                 <input
-                  required
+                  
                   onkeydown="return captureReturnKey(event)"
                   id="sample6_postcode"
                   class="inputarea"
@@ -62,7 +88,7 @@
                 <div class="input addr">
                   <input
                   name="lparea1"
-                    required
+                    
                     onkeydown="return captureReturnKey(event)"
                     type="text"
                     class="form-control inputarea"
@@ -74,7 +100,7 @@
                 <div class="input addr">
                   <input
                   name="lparea2"
-                    required
+                    
                     onkeydown="return captureReturnKey(event)"
                     type="text"
                     class="form-control inputarea"
@@ -86,7 +112,7 @@
 
               <input
               name="lparea3"
-                required
+                
                 onkeydown="return captureReturnKey(event)"
                 type="text"
                 class="width-place form-control inputarea"
@@ -105,22 +131,37 @@
               <div class="row">
                 <div class="time">
                   <input
-                  name="lptime1"
-                    required
-                    type="text"
+                  id="dateTimeLocal"
+                  onchange="setMinValue();"
+                  name="lptime"
+                  value="알 수 없음"
+                    type="datetime-local"
+                     min="2010-00-07T00:00"
                     class="form-control inputarea"
+                    @bind:format="yyyy-MM-ddTHH:mm:ss"
                   />
-                </div>
-                <div class="time">
-                  <input
-                  name="lptime2"
-                    type="text"
-                    class="form-control inputarea"
-                  />
-                  <label class="error" for="">필수 입력 항목입니다.</label>
                 </div>
               </div>
             </div>
+            <small class="form-text text-muted g-font-size-default g-mt-10"
+                >생략 가능</small
+              >
+            <script>
+
+          //시간 입력
+            let dateElement = document.getElementById('dateTimeLocal');
+            let date = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 16);
+            dateElement.value = date;
+            dateElement.setAttribute("max", date);
+
+            function setMinValue() {
+                if(dateElement.value > date) {
+                    alert('현재 시간보다 이후의 날짜는 설정할 수 없습니다.');
+                    dateElement.value = date;
+                }
+            }
+
+            </script>
 
             <div class="find-q">
               <label class="wr-title" for="">실종 동물 종 > 대분류</label>
@@ -128,9 +169,9 @@
                 <option value="none" selected style="color: #555">
                   동물 종을 선택하세요.
                 </option>
-                <option value="dog">개</option>
-                <option value="cat">고양이</option>
-                <option value="etc">기타</option>
+                <option value="개">개</option>
+                <option value="고양이">고양이</option>
+                <option value="기타">기타</option>
               </select>
               <label class="error" for="">필수 입력 항목입니다.</label>
             </div>
@@ -155,20 +196,35 @@
                 <option value="none" selected style="color: #555">
                   성별 (중성화 여부)를 선택하세요
                 </option>
-                <option value="1">암컷 중성화 O</option>
-                <option value="2">암컷 중성화 X</option>
-                <option value="3">수컷 중성화 O</option>
-                <option value="4">수컷 중성화 X</option>
-                <option value="5">알 수 없음</option>
+                <option value="암컷 중성화 O">암컷 중성화 O</option>
+                <option value="암컷 중성화 X">암컷 중성화 X</option>
+                <option value="수컷 중성화 O">수컷 중성화 O</option>
+                <option value="수컷 중성화 X">수컷 중성화 X</option>
+                <option value="알 수 없음">알 수 없음</option>
               </select>
               <label class="error" for="">필수 입력 항목입니다.</label>
             </div>
+            
+                        <div class="find-q">
+              <label class="wr-title" for="">실종 동물 나이</label>
+              <select class="form-control inputarea" name="lpage">
+                <option value="none" selected style="color: #555">
+                  나이를 선택하세요.
+                </option>
+                <option value="0~3세">0~3세</option>
+                <option value="4~6세">4~6세</option>
+                <option value="7~9세">7~9세</option>
+                <option value="10세 이상">10세 이상</option>
+                <option value="알 수 없음">모름</option>
+              </select>
+              <label class="error" for="">필수 입력 항목입니다.</label>
+            </div> 
 
             <div class="find-q">
               <label class="wr-title" for="">실종 동물 색상</label>
               <input
               name="lpcolor"
-                required
+                
                 onkeydown="return captureReturnKey(event)"
                 type="text"
                 class="width-small form-control inputarea"
@@ -238,7 +294,7 @@
 
             <div class="find-q">
               <label class="wr-title" for="">실종 동물 상세정보</label>
-              <textarea name="lpcontent" class="width-place form-control inputarea" required style="width:60%; height:264px; resize: none;"></textarea>
+              <textarea name="lpcontent" class="width-place form-control inputarea"  style="width:60%; height:264px; resize: none;"></textarea>
               
              <!--  <div id="summernote">사진 및 기타 상세정보를 입력하세요.</div> -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -272,7 +328,7 @@
             </div>
           </div>
           <div class="button">
-            <input type="button" value="글 등록" class="btn" onclick="send()"/>
+            <input type="submit" value="글 등록" class="btn"/>
              <script src="${pageContext.request.contextPath}/lostpet/find_write.js"></script>
           </div>
         </form>
