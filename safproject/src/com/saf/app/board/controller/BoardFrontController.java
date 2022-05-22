@@ -44,9 +44,8 @@ public class BoardFrontController extends HttpServlet {
       }else if(command.equals("/board/controller/BoardWrite.bo")) {
          af = new BoardWrite().execute(req, resp);
       }else if(command.equals("/board/controller/BoardWriteOk.bo")) {
-          af = new BoardWriteOk().execute(req, resp);
-            
-         
+    	  System.out.print("왔니");
+    	  af = new BoardWriteOk().execute(req, resp);         
       }else if(command.equals("/board/controller/BoardListOk.bo")) {
          try {
             af = new BoardListOk().execute(req,resp);
