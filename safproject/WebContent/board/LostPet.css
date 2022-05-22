@@ -846,4 +846,9 @@ div.right {
 
 	padding-top: 53px;
 }
+/* write-detail 댓글 옆 버튼 */
+.reply-right{
+	float:right;
+	list-style: none;
+}
 
