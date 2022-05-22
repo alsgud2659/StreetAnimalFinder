@@ -2,11 +2,13 @@ package com.saf.app.board.controller;
 
 import java.io.IOException;
 
+
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.saf.action.Action;
-import com.saf.action.ActionForward;
+import com.saf.app.action.Action;
+import com.saf.app.action.ActionForward;
 import com.saf.app.board.dao.BoardReplyDAO;
 import com.saf.app.board.vo.BoardReplyVO;
 
@@ -21,8 +23,9 @@ public class BoardReplyWriteOk implements Action {
 		BoardReplyDAO dao = new BoardReplyDAO();
 		
 		reply.setRcontent(req.getParameter("rcontent"));
-		reply.setBnumber(Integer.parseInt(req.getParameter("bnumber")));
-		reply.setUnumber((Integer)req.getSession().getAttribute("unumber"));
+		reply.setBnumber(4);
+		//reply.setBnumber(Integer.parseInt(req.getParameter("bnumber")));
+		//reply.setUnumber((Integer)req.getSession().getAttribute("unumber"));
 		
 		dao.insertReply(reply);
 		

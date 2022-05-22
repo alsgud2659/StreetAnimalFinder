@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -28,7 +26,7 @@ pageEncoding="UTF-8"%>
   
   
       <div class="container te">
-          <h2 id="breadcrumb-title" class="h2 g-font-size-28 font-weight-bold g-line-height-1">${btitle}</h2>
+          <h2 id="breadcrumb-title" class="h2 g-font-size-28 font-weight-bold g-line-height-1">제목제목</h2>
           <!--<h2 class="h2 text-dark font-weight-bold mb-3">제목제목제목 글씨 크기 크게</h2>-->
           <!-- height 늘리기 -->
           <div class="row-board shadow-sm">
@@ -39,10 +37,19 @@ pageEncoding="UTF-8"%>
                         style="width: 350px;">
                       </div>
                       <div>
-                        ${bcontent}
-                      </div>
+                      아아아아아ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ아아아아아ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ아아아아아ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ아아아아아ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ아아아아아ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ아아아아아ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ아아아아아ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ아아아아아ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ아아아아아ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ아아아아아ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ
+                    </div>
                 
-                  
+                  <div class="board-insta">
+                      <!-- 클릭하면 접는 기능 -->
+                      <a onclick="this.nextSibling.style.display=(this.nextSibling.style.display=='none')?'block':'none';" href="javascript:void(0)">
+                          <!-- 누르면 열리는 곳 -->
+                          <img class="img shadow-sm" src="instagram.png"
+                      style="height: 50px; width: 50px; position : relative;">인스타그램 보기
+                          </a><div style="DISPLAY: none">
+                              <iframe class="instagram-media instagram-media-rendered embed-responsive-item" id="instagram-embed-0" src="https://www.instagram.com/p/CcOqb2dPHsV/embed" allowtransparency="true" allowfullscreen="true" frameborder="0" height="645" data-instgrm-payload-id="instagram-media-payload-0" scrolling="no" style="background: white; max-width: 540px; width: 100%; border-radius: 3px; border: 1px solid rgb(219, 219, 219); box-shadow: none; display: block; margin: 0px 0px 12px; min-width: 326px; padding: 0px;"></iframe>
+                          </div>
+                      </div>
                   
                     </div>
               </div>
@@ -59,13 +66,13 @@ pageEncoding="UTF-8"%>
           <nav class="text-center " aria-label="Page Navigation">
               <ul class="list-inline mb-0 f-0">
                   <li class="list-inline-item float-left">
-                      <a class="primary--hover shadow-sm" href="${pageContext.request.contextPath}/board/controller/BoardUpdateOk.bo" aria-label="이전글">수정</a>
+                      <a class="primary--hover shadow-sm" href="" aria-label="이전글">이전글</a>
                   </li>
                   <li class="list-inline-item float-left">
-                      <a class="primary--hover shadow-sm" href="${pageContext.request.contextPath}/board/controller/BoardListOk.bo" aria-label="목록">목록</a>
+                      <a class="primary--hover shadow-sm" href="${pageContext.request.contextPath}/board/new-list.jsp" aria-label="목록">목록</a>
                   </li>
                   <li class="list-inline-item float-left">
-                      <a class="primary--hover shadow-sm" href="${pageContext.request.contextPath}/board/controller/BoardDeleteOk.bo" aria-label="다음글">삭제</a>
+                      <a class="primary--hover shadow-sm" href="" aria-label="다음글">다음글</a>
                   </li>
               </ul>
           </nav>
@@ -83,6 +90,13 @@ pageEncoding="UTF-8"%>
                   <h3 class="h6 ">
                       댓글 1
                   </h3>
+                  <form name="test" action="${pageContext.request.contextPath}/board/controller/BoardReplyWriteOk.bo" method="post">
+                  <textarea id="btitle" name="rcontent" type="text" class="form-control form-control-md rounded-0" style="width:60%; height:50px; resize: none;"></textarea>
+                  <li class="reply-right">
+                      <button class="primary--hover shadow-sm" type="button" onclick="send()" aria-label="게시">게시</button>
+                  </li>
+                  </form>
+                  
                   <hr class="my-4">
               </div>
               <div id="comment" class="media g-mb-30">
@@ -113,7 +127,7 @@ pageEncoding="UTF-8"%>
   
       </div>
         <jsp:include page="/footer/footer.jsp"/>
-      
+      <script src="${pageContext.request.contextPath}/board/replycheck.js"></script>
   </body>
   
   

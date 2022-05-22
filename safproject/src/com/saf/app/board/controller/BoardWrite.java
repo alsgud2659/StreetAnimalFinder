@@ -1,7 +1,6 @@
 package com.saf.app.board.controller;
 
 import java.io.IOException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -18,12 +17,12 @@ public class BoardWrite implements Action{
 		UserDAO uDao = new UserDAO();
 		ActionForward af = new ActionForward();
 		
-		String userId = uDao.getUserInfo((Integer)session.getAttribute("userNumber")).getUserId();
+		String userId = uDao.getInfo((Integer)session.getAttribute("userNumber")).getUserId();
 		
 		req.setAttribute("userId", userId);
 		
 		af.setRedirect(false);
-		af.setPath("/app/board/boardWrite.jsp");
+		af.setPath("/app/board/controller/boardWrite.jsp");
 		
 		return af;
 	}

@@ -5,8 +5,8 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.saf.action.Action;
-import com.saf.action.ActionForward;
+import com.saf.app.action.Action;
+import com.saf.app.action.ActionForward;
 import com.saf.app.board.dao.BoardReplyDAO;
 
 public class BoardReplyDeleteOk implements Action {
