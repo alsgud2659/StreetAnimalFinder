@@ -45,11 +45,11 @@
     </h2>
 
     <h3 class="sub-tit">
-        <span id="modi" class="my-tit">스애파 프로필과 별명을 수정 하실 수 있습니다.</span>
+        <span id="modi" class="my-tit">스애파 프로필 사진과 이름을 수정 하실 수 있습니다.</span>
     </h3>
     
     <section class="change-form">
-        <form action="">
+        <form action="${pageContext.request.contextPath}/user/controller/UserUpdateProfileOK.us" method="post" enctype="multipart/form-data">
             <table class="modi-table1">
                 <tbody>
                     <tr class="modi-table-tr">
@@ -67,7 +67,7 @@
                                 <div class="btn_area">
                                     <span class="btn_file">
                                         <label for="inputImage" class="btn-in-form">사진변경</label>
-                                        <input type="file" id="inputImage" name="profileImage" accept="image/*" style="display:none">
+                                        <input type="file" id="inputImage" name="uimage" accept="image/*" style="display:none">
                                     </span>
                                     <a href="#" class="btn-in-form" style="margin-left: 8px; text-decoration: none;">삭제</a>
                                 </div>

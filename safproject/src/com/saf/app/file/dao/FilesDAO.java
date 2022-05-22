@@ -1,4 +1,4 @@
-package com.saf.app.board.dao;
+package com.saf.app.file.dao;
 
 import java.util.Enumeration;
 
@@ -105,7 +105,7 @@ public class FilesDAO {
 		
 		//유저 프로필 첨부파일 추가(SQL)
 		private void userInsertFile(FilesVO file) {
-			sqlSession.insert("Files.insert", file);
+			sqlSession.insert("Files.userinsertfile", file);
 		}
 		
 		//유저 프로필  첨부파일 추가(로직)
@@ -137,12 +137,12 @@ public class FilesDAO {
 		
 		//유저 프로필  첨부파일 삭제
 		public void userDeleteFiles(int unum) {
-			sqlSession.delete("Files.delete", unum);
+			sqlSession.delete("Files.userdeletefile", unum);
 		}
 		
 		//유저 프로필  첨부파일 가져오기
 		public List<FilesVO> userGetFiles(int unum){
-			return sqlSession.selectList("Files.select", unum);
+			return sqlSession.selectList("Files.userselectfile", unum);
 		}
 	
 }
