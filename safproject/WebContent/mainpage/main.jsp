@@ -45,7 +45,7 @@
                     <div class="col2_item" style="padding-top: 20px;">
                         <a href="#">
                             <span class="ci_tit">
-                                우리가 함께 찾은 동물들 : 0 마리
+                                우리가 함께 찾은 동물들 : 124,212 마리
                             </span>
                             <br>
                             <br>

@@ -14,7 +14,7 @@
   <c:set var="user" value="${user}"/>
   
   
-<form action="${pageContext.request.contextPath}/user/controller/UserUpdateOk.us" name="updateForm" method="post">
+<form action="${pageContext.request.contextPath}/user/controller/UserUpdateOk.us" name="Userupdate" method="post" onsubmit="return checkAll()">
     <div class="header-wrap">
         <div>
             <div class="topImageSection" style="height: 250px;">
@@ -199,6 +199,52 @@
         </div>
     </section>
     </form>
+    <script language="javascript">
+                                        function checkAll() {
+                  
+                                            if (!checkMail(Userupdate.uemail.value)) {
+                                                return false;
+                                            }
+                                         
+                                     
+                                            return true;
+                                        }
+                                     
+                                        // 공백확인 함수
+                                        function checkExistData(value, dataName) {
+                                            if (value == "") {
+                                                alert(dataName + " 입력해주세요!");
+                                                return false;
+                                            }
+                                            return true;
+                                        }
+                                     
+                               
+                                     
+                                    
+                                     
+                                        function checkMail(uemail) {
+                                            //mail이 입력되었는지 확인하기
+                                            if (!checkExistData(uemail, "이메일을"))
+                                                return false;
+                                     
+                                            var emailRegExp = /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/;
+                                            if (!emailRegExp.test(uemail)) {
+                                                alert("이메일 형식이 올바르지 않습니다!");
+                                                Userupdate.uemail.value = "${user.getUemail()}";
+                                                Userupdate.uemail.focus();
+                                                return false;
+                                            }
+                                            return true; //확인이 완료되었을 때
+                                        }
+                                     
+                                        
+                                     
+                                      
+                                        
+                                       
+                                    </script>
+    
     
 
     <div class="footer-wrap">
