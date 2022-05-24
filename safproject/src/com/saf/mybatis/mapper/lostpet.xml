@@ -96,6 +96,18 @@
       set rcontent = #{rcontent}
       where rnumber = #{rnumber}
    </update>
+   
+   <!-- 문자 보내기 -->
+   <!-- <select id="message" parameterType="_int" resultType="LostPetMessageVO">
+      select mnumber, lostpet.lpnumber, user.uphone, mcontent
+      from message JOIN user, lostpet
+      on lostpet.lpnumber, user.uphone
+   </select> -->
+   <!-- 문자 쓰기 -->
+   <!-- <insert id="messageInsert" parameterType="_int" resultType="LostPetMessageVO">
+      insert into message mcontent,lpnumber,uphone
+      values(#{mcontent}, #{lpnumber},#{uphone})
+   </insert> -->
 	
 	
 	

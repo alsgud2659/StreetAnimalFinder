@@ -48,31 +48,17 @@
     </h3>
 
     <section class="change-form">
-        <form action="${pageContext.request.contextPath}/user/controller/UserUpdatePwOK.us">
+        <form name="UpdatePW" action="${pageContext.request.contextPath}/user/controller/UserUpdatePwOK.us" onsubmit="return checkAll()">
             <table class="modi-table1">
                 <tbody>
-                    <tr class="modi-table-tr">
-                        <th class="modi-table-th">
-                            <span class="col1-sp">
-                                현재 비밀번호
-                            </span>
-                        </th>
-                        <td class="modi-table-td">
-                            <div class="modi-item">
-                                <input type="password" name="upwnow" id="modi-id" class="form-control">
-                                <div class="div_info_maroon">
-                                    <span class="setSubTextColor"></span>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
+                    
                     <tr class="modi-table-tr">
                         <th class="modi-table-th">
                             <span class="col1-sp">새 비밀번호</span>
                         </th>
                         <td class="modi-table-td">
                             <div class="modi-item">
-                                <input type="text" name="upw" id="modi-name" maxlength="25" class="form-control">
+                                <input type="password" name="upw" id="modi-name" maxlength="25" class="form-control">
                                 <div class="div_info_maroon">
                                     <span class="setSubTextColor"></span>
                                 </div>
@@ -85,7 +71,7 @@
                         </th>
                         <td class="modi-table-td">
                             <div class="modi-item">
-                                <input type="text" name="upwcheck" id="modi-name" maxlength="25" class="form-control">
+                                <input type="password" name="upwcheck" id="modi-name" maxlength="25" class="form-control">
                                 <div class="div_info_maroon">
                                     <span class="setSubTextColor"></span>
                                 </div>
@@ -98,7 +84,7 @@
                 <span>
                     <ul>
                         <li>
-                            영문대문자 소문자를 사용하여 8 ~ 20자로 정해주셔야 합니다.
+                            영문 대문자, 소문자, 숫자를  사용하여 8 ~ 20자로 정해주셔야 합니다.
                         </li>
                         <li>
                             쉬운 비밀번호나 자주 쓰는 사이트의 비밀번호가 같을 경우, 도용되기 쉬우므로 주기적으로 변경하셔서 사용하는 것이 좋습니다.
@@ -115,7 +101,7 @@
 
             <div style="vertical-align: bottom; text-align: center; padding-bottom:10px">
                 <input type="submit" name="" id="" value="확인" class="btn-custom">
-                <input type="submit" name="" id="" value="취소" class="btn-custom" style="background-color: #ffffff; color:black">
+                
             </div>
         </form>
     </section>
@@ -142,6 +128,60 @@
             </div>
         </div>
     </div>
+    
+    <script language="javascript">
+                                        function checkAll() {
+                                           
+                                            if (!checkPassword(UpdatePW.upw.value,    UpdatePW.upwcheck.value)) {
+                                                return false;
+                                            }
+                                            
+
+                                            return true;
+                                        }
+                                     
+                                        // 공백확인 함수
+                                        function checkExistData(value, dataName) {
+                                            if (value == "") {
+                                                alert(dataName + " 입력해주세요!");
+                                                return false;
+                                            }
+                                            return true;
+                                        }
+                                     
+                                       
+                                     
+                                        function checkPassword(upw, upwcheck) {
+                                            //비밀번호가 입력되었는지 확인하기
+                                            if (!checkExistData(upw, "비밀번호를"))
+                                                return false;
+                                            //비밀번호 확인이 입력되었는지 확인하기
+                                            if (!checkExistData(upwcheck, "비밀번호 확인을"))
+                                                return false;
+                                     
+                                            var password1RegExp = /^[a-zA-z0-9]{8,20}$/; //비밀번호 유효성 검사
+                                            if (!password1RegExp.test(upw)) {
+                                                alert("비밀번호는 영문 대소문자와 숫자 8~20자리로 입력해야합니다!");
+                                                UpdatePW.upw.value = "";
+                                                UpdatePW.upwcheck.focus();
+                                                return false;
+                                            }
+                                            //비밀번호와 비밀번호 확인이 맞지 않다면..
+                                            if (upw != upwcheck) {
+                                                alert("두 비밀번호가 맞지 않습니다.");
+                                                UpdatePW.upw.value = "";
+                                                UpdatePW.upwcheck.value = "";
+                                                UpdatePW.upwcheck.focus();
+                                                return false;
+                                            }
+  
+                                            return true; //확인이 완료되었을 때
+                                        }
+                                     
+                                        
+                           
+                                    </script>
+    
       <jsp:include page="/footer/footer.jsp"/>
     
 </body>

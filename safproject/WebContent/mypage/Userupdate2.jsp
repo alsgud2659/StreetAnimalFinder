@@ -53,7 +53,39 @@
         <div class="modi-row">
             <div class="modi-col">
                 <div>
-                  
+                    <table class="modi-table1">
+                        <tbody>
+                         <tr class="modi-table-tr">
+                                <th class="modi-table-th">
+                                    <span class="col1-sp">
+                                        아이디
+                                    </span>
+                                </th>
+                                <td class="modi-table-td">
+                                    <div class="modi-item">
+                                        <input type="text" name="uid" id="modi-id" placeholder="공백없이 4자 이상" class="form-control">
+                                        <div class="div_info_maroon">
+                                            <span class="setSubTextColor"></span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <tr class="modi-table-tr">
+                                <th class="modi-table-th">
+                                    <span class="col1-sp">이름(닉네임)</span>
+                                </th>
+                                <td class="modi-table-td">
+                                    <div class="modi-item">
+                                        <input type="text" name="uname" id="modi-name" maxlength="25" class="form-control" value="${user.getUname()}">
+                                        <div class="div_info_maroon">
+                                            <span class="setSubTextColor"></span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                     <table class="modi-table1">
                         <tbody>
                             
