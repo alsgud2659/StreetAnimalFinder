@@ -1,2 +1,2 @@
 # teamproject
-팀프로젝트
+JSP 팀 프로젝트입니다.
